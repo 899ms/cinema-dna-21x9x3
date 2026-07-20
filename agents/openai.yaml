@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cinema DNA 21:9 x 3"
+  short_description: "Create cinematic 21:9 film-still prompts and triptych shot sequences"
+  default_prompt: "Turn this subject, story, place, product, person, or reference image into three connected 21:9 cinematic film-still prompts."
