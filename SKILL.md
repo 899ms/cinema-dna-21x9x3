@@ -1,771 +1,951 @@
 ---
 name: cinema-dna-21x9x3
 description: >-
-  将人物、空间、产品、建筑、原始图片或简单故事转换为真实电影感的 21:9 单帧或默认 3 张连续叙事三联镜头提示词。Use when the user asks for cinematic image prompts, film still prompt design, 21:9 triptych narrative shots, scene staging, cinematic lighting/color/composition, director DNA translated into concrete visual language, or converting people/spaces/products/buildings into movie-like image prompts.
+  将人物、空间、产品、建筑、历史、神话、科幻或简单故事，转译为真实电影拍摄感的 21:9 单帧或三联叙事镜头。重点解决构图缺乏判断、色彩单一阴冷、CG/AI油腻、剧情平常化与电视剧化等问题。参考图仅用于抽象分析，不参与图像生成。
 ---
 
-# CINEMA DNA 21:9 x 3
-
-Convert a user's subject, story, person, space, product, building, or reference image into cinematic image prompts. Default to three independent 21:9 shots that feel like consecutive frames from one real film scene.
-
-Do not simply apply a named-director filter. Translate style into concrete visual language: staging, lens distance, light source, color structure, spatial depth, character state, material realism, and narrative tension.
-
-## Prime Directive
-
-The goal is not to generate "images that look cinematic." The goal is to generate three frames that feel cut from the same real film sequence: one unified world, clear shot functions, real camera imaging, and a small readable narrative.
-
-## PATCH v3 Hard Rules
-
-Use these rules whenever generating, editing, testing, or reviewing three-shot cinematic image sets.
-
-### Three-Shot Narrative Contract
-
-Each triptych must have distinct functions:
-- Shot 1 | Establish World: establish time, place, weather, spatial order, the character's distance from the world, and the primary atmosphere. Environment information must exceed character information. The frame should feel like an opening shot.
-- Shot 2 | Establish Relationship: advance the event. Show a concrete narrative action such as approaching, delivering, discovering, observing, missing, waiting, making eye contact, or forming a relation across space. It cannot be just another angle of Shot 1.
-- Shot 3 | Leave Aftertaste: reduce and condense information. Use back view, reflection, partial body, hand gesture, empty room, half-open door, read letter, object left behind, or distant departing figure. It should feel unresolved, as if the story continues after the frame.
+# CINEMA DNA 21:9 × 3 · V5
 
-Avoid triptych repetition:
-- No three similar wide shots.
-- No three shots of the same person simply standing.
-- No three complete frontal spaces.
-- No repeated composition skeletons.
-- No style variations without event progression.
-- No triptych without narrative information gaps.
-
-Each triptych must vary at least four of these:
-- Shot scale.
-- Camera position.
-- Foreground treatment.
-- Information density.
-- Light concentration.
-- Composition skeleton.
-- Subject-to-environment ratio.
-- Emotional density.
-
-### On-Site Camera Language
-
-Every shot must place the camera physically in the scene. Specify at least five:
-- Focal length.
-- Camera height.
-- Camera-to-subject distance.
-- Subject frame-height percentage.
-- Foreground obstruction or no obstruction.
-- Main spatial axis.
-- Light source.
-- Focus point.
-- Character sightline.
-- Where the key information sits: foreground, middle ground, or background.
-
-Default lens allocation:
-- Shot 1: 24-28mm, medium-deep DOF, person 5%-15%, strong spatial order.
-- Shot 2: 32-50mm, person 20%-35%, relationship clearer, layered by doors, columns, glass, rails, windows, curtains, table, crowd, or architecture.
-- Shot 3: 50-85mm, or a changed wide observation position. Use compression, reflection, partial framing, less information, stronger residue.
-
-### True 21:9 Use
-
-21:9 is not a crop. It must serve:
-- Horizontal spatial relationships.
-- Distance between character and environment.
-- Left/right information contrast.
-- Corridor, road, water, columns, city edge, grassland, mountain ridge, train car, table, or shoreline narrative.
-- Negative space and off-screen extension.
-
-Avoid:
-- Ordinary images cropped wide.
-- Centered subject with empty side filler.
-- Empty frames without blocking.
-
-### Real Film Imaging
-
-Cinematic feel must come from staging, real spatial order, camera position, light source, color body, physical materials, and optical imperfection. It must not come from generic "cinematic" adjectives, random teal/orange, strong grain, heavy flare, fake contrast, or a film-filter overlay.
-
-Default imaging:
-- Real narrative feature-film still.
-- Dense blacks with preserved shadow detail.
-- Soft highlight roll-off.
-- Slight local halation.
-- Extremely subtle real optical fringing.
-- Medium-low microcontrast.
-- Moderate sharpness, never digital razor sharp.
-- Fine natural uneven grain.
-- Slight edge softness.
-- Air in the image, but not dirty blur.
-
-Optical imperfections are allowed only when extremely restrained and local: high-contrast edges, highlights, window frames, lamp glass, architecture edges, silhouettes, wet reflections, metal edges. Never use cyber RGB split or make aberration the main visual.
-
-### Composition Rules
-
-Each triptych must satisfy at least three:
-- At least one shot has meaningful foreground obstruction.
-- At least one shot frames through a door, glass, columns, rail, curtain, furniture, crowd, or window.
-- At least one shot makes the subject part of the space rather than the dominant object.
-- At least one shot places key information in the background.
-- At least one shot uses offset composition or controlled imbalance.
-- At least one shot uses meaningful negative space.
-
-Choose and mix two composition modes:
-- Strong Order Composition: central axis, one-point perspective, geometric order, institutional pressure. Best for ritual space, power rooms, corridors, palaces, train cars, offices, hotels, and Wes Anderson-like precision. Symmetry must have story pressure and one meaningful break.
-- Controlled Imbalance Composition: slight offset, foreground intrusion, imperfect horizon or perspective, in-progress feeling. Best for youth, memory, Venice, grassland, transition scenes, observation, and Eastern spatial poetics.
-
-### Bright Subject Anti-Drift
-
-For blue sky, grass, youth, campus, red/white buildings, sunlight, clean positive subjects:
-- Bright does not mean animated, high-saturation, sweet commercial, school promo, idol-drama poster, travel ad, or real-estate brochure.
-- Keep live-action film still realism, real sky and clouds, grass with air and irregularity, used architecture, event-driven human action, restrained color, real exposure, soft highlights, and light grain.
-- Red can be a visual accent, not plastic saturated dominance.
-- Ban: cartoon look, animation look, campus advertising, propaganda/promo look, sweet glossy look, oversaturated blue sky/green grass, excessive clarity, plastic skin, studio-commercial look.
-
-### Director Direction Patches
-
-Wes Anderson-like direction must not be reduced to purple plus symmetry. It needs: strong central order, calm faces, theatrical space, specific prop narration, unified palette, precise but not dead composition, people placed inside a geometric stage. Useful micro-narratives: delivering a letter, waiting for an elevator, silence in a reception room, a hotel-lobby pause, one action changing inside a strict color system.
-
-King Hu / Eastern wuxia direction must not become game poster, costume-drama beauty still, or xianxia fantasy. It needs: emptiness, moisture, landscape and architecture co-narration, curtains, doors, corridors, bridges, water, bamboo shadows, layers, small but present figures, low-saturation red/dark clothing accents, more stillness than action, looking/being looked at, separation and threshold tension. Ban: strong combat, VFX sword aura, fantasy glow, game feel, xianxia atmosphere, costume-promo poster.
-
-Ancient, ruin, mythic, coast, mountain, desert, and other scenic subjects must not become beautiful location photography. Add an explicit second narrative force early: watcher, pursuer, child, smoke signal, empty seat, abandoned tool, blocked doorway, unlit hearth, changed object, or trace of absence. Place the camera in a constrained practical position and make the landscape or ruin act as a social, ritual, or moral machine rather than scenery.
-
-### Hidden Plot And Output Check
-
-Before generation, internally answer:
-- What second-to-second story does the triptych cover?
-- Why is the character here?
-- What happened just before Shot 1?
-- What may happen after Shot 3?
-- What information changes from shot to shot?
-- What is the unresolved hook of Shot 3?
-
-Before final output, check:
-- Are the three shots truly different?
-- Do they have clear functional division?
-- Is there a small story?
-- Does Shot 3 leave residue?
-- Is the camera physically placed?
-- Are foreground, middle ground, and background meaningful?
-- Does it avoid poster, ad, comic, CG, game, promo, and filter-only cinema?
-- Does bright subject matter avoid sugar and propaganda?
-- Does Eastern material avoid xianxia/game/costume-promo drift?
-- Does Wes-like material avoid becoming only symmetry and color?
-
-## PATCH v4 Anti-AI Film Frame Rules
-
-Use this patch whenever an output feels AI-like, oily, over-detailed, dirty in the wrong way, lens-poor, or conventionally stacked.
-
-### Anti-AI Image Discipline
-
-The frame should look like a captured film frame with limits, not a prompt trying to impress.
-
-Reduce:
-- Excess visible detail, decorative clutter, ornamental debris, smoke everywhere, and material callouts in every corner.
-- Perfectly legible objects across foreground, middle ground, and background at the same time.
-- Oily amber highlights, glossy wet surfaces, beauty-filter halation, artificial rim light, and render-like reflections.
-- Over-designed production stills where every prop tells the viewer it is important.
-
-Prefer:
-- One readable story clue, one secondary clue, and everything else allowed to fall into shadow, blur, grain, occlusion, or mundane emptiness.
-- Underplayed practical locations: ordinary rooms, hallways, vehicles, streets, courts, offices, classrooms, clinics, stations, hotel rooms, rehearsal spaces.
-- Negative space, blank walls, empty floor, dull ceiling, dead corners, and boring real surfaces when they make the shot feel captured rather than designed.
-- Human timing over visual richness: half-turns, missed gestures, interrupted looks, waiting, leaving, reaching too late, watching from the wrong side of glass.
-
-Prompt rule:
-- Cap each shot at 2-3 concrete scene details plus the camera position and light source.
-- Do not list too many material textures. Choose only the material that matters to the story.
-- Do not ask for "rich detail", "highly detailed", "intricate", "epic", "dramatic", "volumetric", "beautiful", or "masterpiece".
-
-### Lens-Texture Calibration
-
-When lens texture feels weak, specify a capture medium instead of more "cinematic" adjectives.
-
-Choose one capture substrate per set:
-- 35mm release print: soft gate, print density, mild color breathing, medium-low microcontrast, fine uneven grain.
-- 16mm television transfer: softer resolution, chunkier but still natural grain, slight color bleed, imperfect exposure, practical documentary immediacy.
-- VHS / old broadcast capture: lower fidelity, scan softness, luma noise, color bleed, unstable blacks, only for low-fi or archival scenes.
-- MiniDV / early digital video: harsh small-sensor practical light, slight interlace/edge harshness, limited dynamic range, only for 1990s/2000s realism.
-- Surveillance / CRT / monitor rephotograph: geometry distortion, screen texture, glare, black crush, only when the story needs a mediated viewpoint.
-- Long-lens film compression: shallow but not creamy DOF, heat shimmer or window distortion, compressed figures, restrained detail.
-- Wide/fisheye witness POV: optical distortion justified by the camera being physically trapped inside a vehicle, doorway, crowd, checkpoint, locker room, corridor, or hiding place.
-
-Rules:
-- Lens defects must be optical and local, not global effects.
-- Let blacks crush a little, but keep enough shadow structure for story.
-- Let highlights clip or bloom slightly when practical sources would do so.
-- Keep faces less perfect: natural texture, darker skin values, no commercial fill, no porcelain smoothness.
-- Grain should not be "more"; it should be uneven and attached to exposure, strongest in shadows and midtones.
-
-### Controlled Dirt, Not Dirty AI
-
-Dirty realism means selective imperfection, not adding grime everywhere.
-
-Use only one dominant imperfection family:
-- Dust and dry scratches.
-- Rain and wet reflection.
-- Smoke and low-output lamps.
-- Fluorescent institutional grime.
-- Broadcast/video noise.
-- Fogged glass or condensation.
-- Sun-faded fabric and chipped paint.
-
-Avoid combining too many: dust + smoke + scratches + fog + dirt + rain + lens flare in one frame usually reads as AI.
-
-### Unconventional Triptych Rhythm
-
-A triptych does not need to be three equal, polite establishing/medium/detail images. It should feel like a few frames stolen from an edit.
-
-Allowed external layouts after generating separate 2.39:1 frames:
-- Classic equal stack: 1:1:1, use only when the sequence is balanced.
-- Held opening: 1.25:0.9:0.85, Shot 1 larger, useful for world-first cinema.
-- Impact middle: 0.85:1.3:0.85, Shot 2 larger, useful when a decision or action is the center.
-- Aftertaste ending: 0.85:0.9:1.25, Shot 3 larger, useful when residue matters most.
-- Uneven memory strip: 0.7:1.2:0.75 with 6-16px black breathing gaps, useful for subjective or archival sequences.
-- Broken surveillance strip: 1:1:1 with one frame slightly lower contrast or softer, useful for mediated POV.
-
-Never generate these layouts inside the image model. Generate separate frames first, then post-process externally.
-
-Triptych variation rules:
-- At least one shot may be a mediated frame: window reflection, TV/CRT image, surveillance angle, phone/video playback, mirror, porthole, car glass, or view through blinds.
-- At least one shot should be less complete than expected: partial face, empty room, object left behind, too much ceiling, occluded body, or important action in a corner.
-- Do not always place the emotional climax in Shot 3. Sometimes Shot 2 is the only dramatic frame and Shot 3 is nearly empty.
-- Black spacing between images may be 0-16px. Use spacing as edit rhythm, not decoration.
-
-### Reference-Learned Frame Grammar
-
-From film-study contact sheets, extract these useful patterns:
-- A row can mix a distant room, a face fragment, and an object/empty space without explaining everything.
-- Strong sequences often include one "boring" transitional shot that makes the others feel real.
-- Low-fi or imperfect media frames can feel more cinematic than polished film-still prompts.
-- Color can shift shot-to-shot within one set if motivated by place or medium: cold exterior -> warm interior -> dark residue, or fluorescent room -> daylight window -> CRT blue.
-- Composition may be awkward in a controlled way: too much headroom, subject cut by window edge, figure placed at the far margin, horizon slightly low, or action partially hidden.
-
-### V4 Self-Check
-
-Before final output, reject a set if:
-- Every frame looks expensive, beautiful, and fully designed.
-- Every frame is equally detailed.
-- Every frame uses the same clean 21:9 composition.
-- Dirt is spread uniformly across the image.
-- The lens substrate is not visible.
-- The sequence would look the same if shuffled.
-- The images feel like prompt illustrations rather than frames captured from a scene.
-
-### V4 Validated Defaults
-
-Use these defaults when the user asks to test, randomize, or improve cinematic realism:
-- Write shorter prompts than v3: one capture substrate, one color body, one story clue, one secondary clue, one camera position, one light source.
-- Prefer 35mm release print, 16mm television transfer, long-lens film compression, or mediated glass/monitor views over generic "cinematic still" language.
-- Use one intentionally underplayed or "boring" shot in each triptych: empty lounge, plain pier, blank corridor, closed door, empty seat, dead ceiling, or object left behind.
-- Let composition become controlled-awkward when useful: too much ceiling, subject at a far edge, action hidden through a window, object in foreground but person missing.
-- Use uneven external stitching by default when the user complains that the triptych feels conventional.
-
-Validated triptych rhythms:
-- Hotel / room looking out: held opening `1.25:0.9:0.85`.
-- Sea / departure / loss: aftertaste ending `0.85:0.9:1.25`.
-- Ritual / refusal / ceremony: impact middle `0.85:1.3:0.85`.
-
-Validated subject recipes:
-- Hotel interior looking at African savanna: yellow ochre window light, dark hotel interior, off-road vehicle and animals as distant story clue, avoid safari-tourism beauty.
-- Very blue sea with large ship: restrained blue body, long-lens compression, missed departure clue, plain pier or floating ticket, avoid postcard travel imagery.
-- Eastern ritual symmetry: strict axial staging, saffron/yellow field, deep red accent, black ceremonial shadows, refused seal or closed box, avoid costume-poster gloss.
-- Refined Go master and boy: if the user references Zhang Yimou's `Shadow`, use stable ink-wash monochrome, rain on silk screens, strict central table axis, same room/light/costumes across all shots, sparse board allowed, wrong stone / empty cushion as story clue, avoid luxury tea-room, macro stones, color-temperature jumps, or costume-drama polish.
-- Real F1 track rain: overcast daylight, wet asphalt black, desaturated racing white, tiny red track-safety accent, speed from panning blur and tire spray, avoid neon/cyberpunk/showroom gloss.
-- Chinese county absurd realism: 16mm or old broadcast texture, cement gray body with bus-stop blue / plastic red / faded wedding pink accents, mundane absurd object treated seriously, avoid nightclub ruin and global green-pink filters.
-- Art Deco imperial hotel interior: use solemn interior order, dark polished-but-aged wood, brass only as a restrained accent, vertical lobby or corridor symmetry, and one small social action. Avoid tourist lobby brochure, purple luxury lounge, empty showroom, or decorative symmetry without pressure.
-- Louvre / Paris city line with sun: motivate lens flare from the actual sun entering the lens near glass, stone, river, or roofline; keep the flare local and photographic. Avoid random anamorphic streaks, postcard skyline, clean travel-ad blue, or a sun that does not affect exposure.
-- Zhang Yimou-like red-blue contrast: make contrast come from costume, weather, and time of day, not arbitrary grading. Example: red textile against blue hour snow/rain, blue-gray weather surrounding a red procession, or cold daylight with one saturated costume field. Avoid copying known frames or turning it into stage-poster color blocking.
-- Datong temple, Buddha sculpture, snow: prioritize solemn scale, polychrome Buddhist sculpture, snow daylight, and a designed human silhouette as scale. Use a ritual conservator, restorer, attendant, or pilgrim with a clear coat/scarf/tool silhouette rather than an ordinary tourist. Keep the human visually memorable but smaller than the sacred architecture.
-- Journey to the West from the original novel: evoke the literary roles and mythic road through silhouettes, burdens, weather, and terrain. Do not resemble TV actors, animation, game key art, or cosplay lineup.
-- Hong Kong absurd comedy inspired by deadpan timing: build the joke from mundane blocking, delayed reactions, prop misuse, and narrative cause/effect. Do not use actor likeness, meme faces, slapstick poster posing, or nightclub color filters.
-
-## Progressive References
-
-Read [references/cinema-dna-full-spec.md](references/cinema-dna-full-spec.md) when any of these apply:
-- The user asks for a specific director/film DNA, Eastern wuxia staging, experimental POV, or nuanced visual system.
-- The user provides reference images and you need exact preservation/extraction rules.
-- The prompt output feels generic, repetitive, or lacks continuity across the three shots.
-- You need the original examples or full quality checklist.
-- Read [references/cinema-dna-v4-anti-ai.md](references/cinema-dna-v4-anti-ai.md) when the user says the image feels AI-like, oily, over-detailed, dirty, lens-poor, or the triptych layout feels conventional.
-
-For routine prompt generation, use the core workflow below without loading the full reference.
-
-## Default Behavior
-
-Unless the user specifies otherwise:
-- Output 3 separate 21:9 ultra-wide cinematic prompts.
-- If the user asks to generate or "show" the result, produce three independent 21:9 images first, then crop and stitch externally; never ask the image model for a built-in collage.
-- Make the three shots one continuous narrative fragment: same world, same subject, same event, same time/weather, same film texture, same light logic, same color family.
-- Use no text, no title, no subtitles, no watermark, no poster/collage/split-screen/storyboard layout.
-- Keep every generated shot at 2.39:1. Do not ask the image model to draw a triptych collage, contact sheet, storyboard grid, poster layout, or multi-panel image.
-- Avoid cheap cinematic filters, game concept art, glossy commercial ad lighting, fake HDR, oversharpening, plastic skin, meaningless props, duplicated people, extra limbs, and random lens flare.
-- Prioritize a natural photographic film-still look over spectacle: restrained exposure, matte surfaces, imperfect practical locations, real dust/smoke/rain/fog, human-scale blocking, and physical lens limits.
-- Avoid words that often push image models toward oily CGI unless the user explicitly asks for them: "epic", "ultra detailed", "masterpiece", "dramatic masterpiece", "hyperreal", "8k", "volumetric fantasy", and excessive "halation".
-
-Switch to single-frame mode only when the user explicitly asks for one image, tests one visual direction, or provides a single product/portrait/architecture angle that does not need progression.
-
-## Input Analysis
-
-Before writing prompts, extract:
-- Subject: who or what is central.
-- Place: where the scene happens.
-- Event: what is happening now.
-- Previous second and next second.
-- Primary emotion and conflict.
-- Best narrative template.
-- Main visual engine and 1-2 support engines.
-- Whether triptych or single frame fits.
-- Character/space scale relationship.
-- Lens distance, camera position, and light source.
-- Main color, support color, and accent color.
-- Any locked identity, structure, product features, clothing, pose, or expression from user-provided material.
-
-## Conversation-Calibrated Defaults
-
-Use these defaults when the user asks for repeated visual tests, says "再来几个", "生成看看", or gives terse Chinese subject lines:
-
-- Generate quickly: write one compact prompt per shot and run the three image generations in parallel when the available toolchain permits it.
-- Save generated images under `D:\Codex_Outputs\images`, prompts under `D:\Codex_Outputs\drafts`, temporary crops under `D:\Codex_Outputs\temp`, and final composites under `D:\Codex_Outputs\exports` or the active image test folder. Do not place new large files on the desktop or C drive unless the user asks.
-- Default delivered composite: crop each generated frame to `1530x640`, vertically stack the three frames with 8px black gaps, and verify the final image is `1530x1936`. If the user requests no gaps or a different rhythm, adjust in external post-processing only.
-- Keep the three source frames next to the composite so the user can inspect individual shots.
-- When using a local OpenAI-compatible image gateway, prefer existing environment or auth configuration before asking the user for credentials. If `OPENAI_API_KEY` exists in local Codex auth and the user has said image generation is configured, use it with the configured `OPENAI_BASE_URL` and image model.
-- If the user corrects a visual direction, make the next prompt change explicit in the scene language instead of only adding adjectives.
-
-### Styled Human Rule
-
-When the subject includes a person inside a ceremonial, architectural, fashion, fantasy, or historical-feeling setting:
-- Avoid "ordinary person", "tourist", "visitor", or generic standing figure unless explicitly requested.
-- Give the person one readable silhouette and one functional narrative role: ritual conservator, attendant, courier, restorer, clerk, guard, apprentice, driver, witness, or performer.
-- Use 1-2 costume or prop details only: coat shape, scarf color, tool case, gloves, hat, sleeve, bag, ledger, or lantern. The details must support story and scale, not become cosplay.
-- Keep Shot 1 dominated by place and scale; let the styled figure become clearer in Shot 2; use back view, silhouette, reflection, or trace in Shot 3.
-
-### Character Continuity Lock
-
-When a triptych contains any recurring human subject, do not rely on "same person", "same bride", "same guard", or "same character" alone. Before writing shot prompts, create a short identity capsule and repeat it verbatim in every shot where the subject appears.
-
-Identity capsule must include:
-- Ethnicity or regional facial type when implied by place or subject. For Chinese, East Asian, Japanese, Korean, Central Asian, Indian, Middle Eastern, African, European, or Latin American settings, lock the relevant identity explicitly. Do not let a Chinese or East Asian scene drift into a Western actor unless the user asks for that.
-- Approximate age range and gender presentation.
-- Face anchors: face shape, hair length/style, one distinctive facial feature, and skin value.
-- Body anchors: height/build or posture.
-- Wardrobe anchors: one coat/top silhouette, one color, one repeated accessory or prop.
-- Role anchor: the character's function in the scene, not a model pose.
-
-Use stable wording:
-- Good: "the same East Asian woman in her early thirties, oval face, short black bob tucked behind one ear, natural medium skin, slim build, bottle-green wool coat, carrying the same sealed brown envelope."
-- Weak: "same woman", "same bride", "beautiful girl", "Asian style", "cinematic person".
-
-For ensemble scenes, define 2-4 identity capsules only for recurring story-critical people. Keep background people generic, but lock their regional/cultural casting if the setting requires it.
-
-If a frame uses back view, reflection, silhouette, blur, or partial face, still include the identity capsule plus visible continuity anchors such as the same coat color, hairstyle outline, accessory, prop, or body posture.
-
-## Image Generation Workflow
-
-When actually generating images, use this order:
-
-1. Write a continuity bible before generation: recurring character identity capsule(s), fixed wardrobe, repeated prop, environment, main color family, material language, lighting system, capture substrate, and forbidden drift.
-2. Generate one master reference image for the character and scene if no reference image exists and the available image workflow supports reference-based generation or edit. Use it to lock identity, wardrobe, and setting.
-3. If no reference-image mechanism is available, copy the same identity capsule verbatim into Shot 1, Shot 2, and Shot 3. Do not shorten it after Shot 1.
-4. Generate Shot 1, Shot 2, and Shot 3 separately as individual 2.39:1 images.
-5. Never ask the image model to compose the three shots into one triptych. This often turns into a storyboard, poster, or graphic layout.
-6. After all three images exist, crop each externally to the same 2.39:1 ratio if needed.
-7. Stitch externally in a vertical stack for final delivery.
-8. Before final delivery, inspect the triptych for identity drift: ethnicity, face shape, hair, age, body build, wardrobe, and repeated prop. If a story-critical person changes identity, regenerate the drifting frame before showing the result.
-9. For night scenes, dense interiors, ensemble crowds, smoke, rain, wet reflections, temples, markets, sci-fi rooms, or any visually complex frame, create a lightly denoised delivery version before stitching. Use external post-processing only: reduce high-frequency noise and oily micro-detail, keep faces readable, preserve real shadows and local film grain, and avoid plastic smoothing.
-
-For vertical stitching:
-- Use no in-image text.
-- Use no white border.
-- Do not generate black bars inside any image.
-- Use 0-16px black spacing between images only as external post-processing. Default to 0px when the user wants no black edge.
-- When the user says the triptych feels conventional, use an uneven external rhythm instead of equal stacking: held opening, impact middle, aftertaste ending, uneven memory strip, or broken surveillance strip.
-- Add any final outer border or spacing only in post-processing, never inside the generated images.
-
-### Night And Complex Scene Denoise
-
-When a generated set includes night, low-output lamps, smoke, fog, rain, wet streets, dense interiors, large crowds, temple sculpture, machinery, city skylines, or many small props, run a light cleanup pass before final stitching:
-- Use a mild median/denoise or tiny blur radius, then restrained sharpening only if the face or main object becomes too soft.
-- Prefer reducing random speckle, excessive microcontrast, crunchy edge detail, oily skin shine, and over-legible background clutter.
-- Preserve the intended capture substrate: do not erase all film grain, do not make skin plastic, and do not turn the image into a smooth commercial render.
-- Keep the denoised files in `D:\Codex_Outputs\temp` next to the crops; keep raw source frames in `D:\Codex_Outputs\images`.
-- If denoise changes identity, expression, hands, readable story objects, or architecture geometry, discard that pass and use a lighter cleanup.
-
-## Narrative Templates
-
-Choose one:
-- Entering: exterior/whole establishment -> approach/entry -> interior pause or observation.
-- Confrontation: space establishment -> relationship forms -> tension lands.
-- Wandering: world -> passage through space -> pause or look back.
-- Discovery: approach unknown -> discover target -> emotional aftertaste.
-- Solitude: person contained by world -> slight interaction with space -> quieter, emptier ending.
-- Ritual: power/order of space -> person enters order -> individual is swallowed by or contrasts with structure.
-
-## Visual Engines
-
-Select one main engine and 1-2 supporting engines. Do not stack more than three.
-
-- Order Composition: axial symmetry, central perspective, frame-in-frame, doors/windows, columns, corridors, foreground occlusion, geometric spatial cuts.
-- Light Drama: hard window light, door-slit light, top light, backlit silhouettes, candle/fire/light fixtures, deep underexposure, volumetric light. Light must have a real source.
-- Color Narrative: one main color, one support color, one small accent. Color must serve emotion and story.
-- Spatial Narrative: architecture/interior/environment carries story. Add traces such as an unfinished drink, open door, disturbed chair, wet floor, curtain movement, left-behind clothing.
-- Character State: waiting, observing, confronting, wandering, hiding, losing control, missing, ritual, loneliness. Avoid model poses and direct camera-gazing without reason.
-- Scale and World: human vs megastructure, nature, civilization, myth, or cosmos. Large scenes must still preserve human fate.
-- Eastern Staging: mountains/water as narrative space, architecture as blocking, stillness before movement, wind through fabric/bamboo, long-scroll horizontal space.
-- Subjective/Experimental Lens: fisheye, close detail, low angle, tilted horizon, reflections, glass refraction, peephole/CCTV/water POV, motion blur, focus drift, negative space. Use sparingly and only when it serves emotion.
-
-## Director DNA Translation
-
-Use director/film references only as internal recipes. Translate them into concrete visual language instead of writing only “in the style of X.” Common DNA groups:
-- Precise Absurdity: frontal static camera, strict but not mechanical symmetry, staged spaces, precise props, calm faces, retro blocks of color.
-- Realist Epic: huge real spaces, small people, deep perspective, natural light, physical materials, wind/waves/dust/smoke.
-- Silent Megastructure: minimal enormous spaces, rough architecture, silhouettes, dust/fog/grain, ritual rows, oppressive geometry.
-- Eastern Wuxia: landscape and architecture as staging, hidden figures, frames/layers, stillness before action, wind moving fabric and bamboo.
-- Dense Urban Emotion: deep reds/dark greens/smoke yellow/night blue, narrow rooms, mirrors/glass/curtains, near yet distant people, humidity/reflections.
-- Geometric Unknown: extreme symmetry, central perspective, cold corridors, ritualized movement, unease inside order.
-- Time Ruins: water traces, ruins, old industrial spaces, rain/fog/wind, slow time, memory and reality pressed together.
-- Distant Eastern: remote observation, natural occlusion, real terrain, restrained clothing, action happening inside space.
-- Cold Gray Future: blue-gray air, glass, minimal modern space, skyline, cold order, high-rise loneliness.
-
-## Director DNA Strength Control
-
-When the user says the director style is weak, strengthen the DNA through camera behavior, staging grammar, rhythm, and moral viewpoint rather than adding more director names.
-
-For each selected DNA, define:
-- Camera ethic: distant observer, frontal witness, constrained participant, surveillance-like view, ritualized symmetry, handheld uncertainty, or compressed voyeur distance.
-- Staging habit: axial order, lateral blocking, bodies swallowed by architecture, off-screen event pressure, characters facing away, characters separated by thresholds, or action hidden in background.
-- Rhythm: stillness before action, procedural waiting, sudden absence, delayed reveal, unresolved pause, or geometric repetition.
-- Light logic: one dominant practical source pattern that repeats across all three shots.
-- Color discipline: one color family that carries the emotional argument, with only one small counter-color.
-- Signature imperfection: lens softness, local halation, smoke/dust density, deep negative space, occluded faces, or restrained grain.
-
-Director DNA must be visible in every shot, but never as parody:
-- Shot 1 shows the world-order of the DNA.
-- Shot 2 shows how people are trapped, judged, or moved by that order.
-- Shot 3 leaves the DNA's emotional afterimage.
-
-If the result looks generic, increase one concrete staging rule instead of adding adjectives.
-
-## Reference-Learned Interior / Social Staging Grammar
-
-When the user provides cinematic references with ornate rooms, dining tables, windows, lamps, train compartments, palaces, restaurants, or ensemble blocking, extract the abstract grammar below. Never copy exact characters, costumes, sets, or famous shot layouts.
-
-Core composition lessons:
-- Build the frame from a social arrangement, not from a single subject pose.
-- Use 3-7 narrative nodes when the scene allows it: protagonist, opponent, watcher, servant, guard, empty chair, fallen body, exit, lamp, window, table, or object of decision.
-- Every node needs a role: observer, target, witness, blocker, victim, authority, exit, or consequence.
-- Use furniture, lamps, windows, doors, paintings, mirrors, clocks, stairs, and floor patterns as power geometry, not decoration.
-- Let sightlines, table edges, floor seams, window bands, chair backs, and lamp rows carry the viewer from cause to action to consequence.
-
-Interior staging families:
-- Ornate Power Tableau: high or wide view, dense room, multiple witnesses, one political or violent center, hierarchy organized by chandelier, table, floor pattern, doorway, and bodies.
-- Table Negotiation Cinema: characters separated by a table, lamp, meal, window, or empty chair; the action is small but decisive.
-- Window-Silhouette Chamber Drama: pale window rectangles and dark bodies create moral distance; curtains, chairs, and table legs structure the conflict.
-- Saturated Social Density: crowded interior, local red/green/gold accents, faces and costumes forming a social web around one seated or trapped subject.
-- Constrained Witness POV: camera stands behind ironwork, glass, doorway, chair, table end, carriage seat, service corridor, or window recess; obstruction must make the viewer feel like a witness.
-
-Color and light lessons:
-- Warmth must be local: table lamps, chandeliers, fireplace, stained glass, desk lamps, or windows. Do not flood the whole image with amber.
-- Useful interior palettes: tobacco umber + dark green + dirty tungsten; burgundy upholstery + smoke black + pale window cyan; ivory daylight + dark wood + muted gold; jade accent + black lacquer shadow + red lamp; cool gray daylight + brown wood + small fire.
-- Skin is shaped by practical light and shadow, not beauty fill.
-- Fabric should absorb or scatter light: velvet, wool, silk, lace, cotton, brocade. Avoid waxy faces and glossy costume shine.
-- Smoke, dust, humidity, and veiling must be motivated by visible light and room atmosphere.
-
-Lens lessons:
-- 24-28mm: room as institution, people as pieces inside order.
-- 32-50mm: conversation, negotiation, meal, interrogation, role conflict.
-- 50-85mm: compression through frames, partial face, reflection, consequence.
-- Avoid close-ups that erase social geometry.
-
-## Linear Story Spine
-
-A three-shot set must not be three beautiful related stills. It needs a visible story line with cause, action, and consequence.
-
-Before generating, write an internal one-line spine:
-- Shot 1: because something has already happened, the character enters or faces a specific space.
-- Shot 2: the character performs or refuses one specific action.
-- Shot 3: the space records the consequence, absence, or unresolved decision.
-
-Every shot must contain a story verb, not only a mood:
-- arrives, waits, crosses, hides, opens, studies, refuses, repairs, listens, discovers, abandons, follows, returns, loses, removes, burns, locks, or leaves.
-
-Continuity objects must move or change:
-- envelope, plan, lamp, car door, coat, tool, ticket, map, chair, window, doorway, fire, train, bus, signal printout, costume, or water trace.
-
-Linear composition should guide the story:
-- Use a dominant line that carries the viewer from previous cause to current action to future consequence.
-- Avoid shots where the line only creates depth but does not point to a decision.
-- If a frame has no visible cause/effect relation, rewrite it before generating.
-
-## Lens Rules
-
-- 18-24mm: megastructures, architecture, epic scale; avoid excessive distortion and stretched bodies.
-- 28-35mm: default cinematic spatial narrative, streets, rooms, hotels, forests, groups.
-- 40-50mm: interiors, dialogue, waiting, psychology, two-person relationships.
-- 65-85mm: distance, compression, ritual, isolation, shooting through glass/doorframes, distant wuxia observation.
-- 100mm+: only for strong compression and distance.
-- Fisheye / 14-18mm witness POV: use sparingly, at most one shot per triptych, only when the camera is physically trapped inside a car, elevator, checkpoint booth, locker room, bus, closet, corridor corner, or other justified tight viewpoint. It should increase narrative pressure, not become a novelty effect.
-
-## Special Lens And Light Inserts
-
-When composition feels too conventional, one shot in a triptych may use a motivated special lens or special light event while the other two shots stay stable.
-
-Allowed inserts:
-- Fisheye witness POV from a physically constrained camera position.
-- Water caustics from pool water, aquarium glass, flooded floors, wet ceilings, or moving reflections.
-- Projector beams, venetian-blind shadows, fan-blade shadows, railing shadows, train-window bands, headlights sweeping through a room, surgical lamp falloff, or sodium-vapor tunnel pools.
-
-Rules:
-- Use special lens/light as narrative pressure, not decoration.
-- Keep the light source explainable and preferably visible or inferable.
-- Keep foreground, middle ground, and background readable.
-- Keep the same color body across the triptych; the special light may be an accent, not a new palette.
-- Avoid music-video lighting, neon beams, fantasy caustics, random fisheye exteriors, horror gimmicks without story reason, and anything that reads like a game/concept-art effect.
-
-## Three-Shot Camera Rules
-
-For default triptych output, treat these as hard camera rules unless the user overrides them.
-
-### Shot 1 | Establish Space
-- Use 24-28mm.
-- Set camera height around 1.1-1.4m.
-- Make the person occupy only 5%-15% of frame height.
-- Use medium-deep depth of field.
-- Include a clear architectural axis or large foreground element.
-- The frame should first make the viewer understand the place, scale, and spatial order.
-
-### Shot 2 | Establish Relationship
-- Use 32-50mm.
-- Set camera height close to the character's chest.
-- Make the person occupy 20%-35% of frame height.
-- Use doorframes, columns, glass, crowds, furniture, or structural openings to create a frame-within-frame.
-- Let light begin concentrating on the character and the event.
-- The frame should clarify the relationship between character, space, and conflict.
-
-### Shot 3 | Leave Aftertaste
-- Use 50-85mm, or keep a wide lens but change observation position clearly.
-- The person may appear only as a partial body, back view, reflection, silhouette, or occluded figure.
-- Allow obstruction and selective defocus.
-- Reduce information and increase pause.
-- The ending does not need to explain the story.
-- The frame should leave a precise emotional residue rather than resolve the plot.
-
-## Composition Rules
-
-Each shot should include at least two of foreground, middle ground, and background.
-
-Prefer doors, glass, columns, corridors, furniture, water, smoke, curtains, railings, branches, shadows, or partial bodies as spatial layers. Allow off-center characters, backs to camera, partial occlusion, large negative space, and important action in the background.
-
-Avoid everyone facing the camera, ad-like posing, no foreground/background relationship, no sightline direction, and evenly lit space.
-
-## Cinematic Beauty Rules
-
-Anti-CGI realism is not enough. Every shot must still have a deliberate film-image design:
-- One clear visual axis: corridor, window line, table edge, stair, shadow band, water line, wall joint, or skyline.
-- One emotional focal point: a hand, face edge, object, doorway, light patch, reflection, empty chair, crack, stain, or distance between two figures.
-- One memorable graphic shape: a bright rectangle, dark void, diagonal shadow, repeated columns, circular opening, narrow slit of light, or large negative-space block.
-- Separation between subject and background through value, occlusion, silhouette, depth, or a motivated practical light. Do not rely on sharpness alone.
-- A controlled light ratio: at least one area should fall into meaningful shadow, and one local area should hold the viewer's eye.
-- A color accent that is small but intentional. Avoid all-gray documentary flatness unless the scene has strong graphic contrast.
-- A foreground layer that feels like camera placement, not decoration.
-- A frame should be beautiful because of blocking, proportion, light geometry, and emotional timing, not because it is glossy or digitally spectacular.
-
-For architecture subjects, prioritize spatial elegance:
-- Align the human figure with a strong architectural line, void, threshold, or vanishing point.
-- Use morning/evening side light, skylight slots, window bands, reflected floor light, or work lamps to carve geometry.
-- Show scale through a small human body, not through exaggerated fantasy architecture.
-- Include one imperfect trace of labor or decision: pencil marks, model fragments, dust on drawings, taped plan, cracked sample, wet footprint, displaced chair, or unfinished mockup.
-
-## Composition Philosophy / Anti-Meaningless Foreground
-
-Do not use foreground objects as generic "cinematic" decoration. Foreground must earn its place by changing how the viewer understands space, danger, privacy, distance, or attention.
-
-Before adding foreground blur, close foreground bars, shoulders, leaves, furniture, curtains, glass, or partial bodies, verify at least one function:
-- It explains where the camera is physically standing.
-- It creates a frame-within-frame that points to the emotional focal point.
-- It separates foreground, middle ground, and background into readable spatial planes.
-- It hides or delays information for narrative tension.
-- It expresses the character's trapped, watched, excluded, or isolated state.
-- It creates a meaningful graphic relationship with the architecture, light patch, horizon, or body line.
-
-Reject meaningless foreground close-ups:
-- No random blurry object covering the frame just to look cinematic.
-- No oversized hat brim, shoulder, glass, railing, leaf, weapon, candle, or furniture edge unless it has narrative or spatial purpose.
-- No macro detail replacing scene design. A close-up must still carry story, location, and emotional consequence.
-- No shallow-depth-of-field trick that destroys architecture, blocking, or the three-shot progression.
-- No foreground that competes with the subject without adding tension or meaning.
-
-Composition should be built from film logic:
-- Start with a visual axis: corridor, canal line, road, table edge, column rhythm, window band, stair, wall seam, shoreline, skyline, or shadow line.
-- Place the subject by blocking, not posing: entering, hesitating, waiting, crossing, leaning, turning away, being watched, or partially hidden.
-- Balance masses, voids, and light fields before adding texture.
-- Let the viewer's eye move through the frame in a controlled path: foreground cue -> subject/event -> background consequence.
-- Use negative space as pressure, not emptiness.
-- Use symmetry only when it creates order, ritual, power, or unease; break it when the story needs instability.
-- In triptychs, change the camera's ethical distance: Shot 1 observes the world, Shot 2 witnesses the relation, Shot 3 leaves a precise residue.
-
-When an output feels pretty but not cinematic:
-- Reduce scenic completeness and postcard balance.
-- Add one unresolved human action or decision trace.
-- Make the camera stand somewhere physically constrained: doorway edge, table end, platform corner, stair landing, service corridor, window recess, vehicle interior, or work pit.
-- Use one imperfect architectural or environmental interruption without making it decorative.
-- Preserve the visual axis, but break ornamental balance.
-- Keep beauty from blocking and light geometry, not from scenic spectacle.
-
-## Optical Imperfection System
-
-Use optical imperfection to make the frame feel photographed by a real cinema camera, not rendered. Keep it subtle and local.
-
-Default optical baseline:
-- 2.39:1 widescreen frame.
-- Real narrative feature-film still, 35mm film texture unless the user specifies another format.
-- Dense, slightly deep blacks with preserved shadow detail.
-- Soft highlight roll-off; practical lamps or bright highlights may have slight local halation.
-- Medium-low microcontrast. The subject is clear but not digitally razor-sharp.
-- Fine, uneven, natural grain; never grain stickers or heavy texture overlays.
-- One main color family, one support color, and very small accents.
-- Overall exposure is slightly under by about 0.5-1 stop.
-- Use only explainable practical or natural light sources.
-- Natural, slightly darker skin. No commercial beauty fill.
-- Shot 1 uses medium-deep depth of field.
-
-Chromatic fringing rules:
-- Use only subtle optical imperfection, never stylized chromatic effects.
-- Add extremely light color fringing only on high-contrast edges: window frames, architecture edges, backlit branches, character silhouettes, metal reflections, practical-light edges, glass edges.
-- Keep fringing local and low strength. Do not create global RGB split, obvious red/blue outlines, vaporwave effects, cyber filters, or edge-wide color noise.
-- Never let fringing reduce subject identity, readability, or spatial detail.
-
-Halation and bloom rules:
-- Let halation appear only around bright practical lights, windows, flame, candlelight, tungsten bulbs, or sharp reflections.
-- Keep it soft, restrained, and photographic, like film emulsion gently eating the highlight edge.
-- Use slight optical bloom or veiling only where light, lens, and air would plausibly create it. Do not use beauty-glow, fog filters, or global white haze.
-
-Anamorphic/edge rules:
-- Allow mild edge softness, slight corner falloff, weak vignette, and minor lens color bias at frame edges.
-- Do not blur the subject, simulate low-resolution footage, or destroy architectural detail.
-
-Optical look recipes:
-- Oppenheimer Optical Look: 5% chromatic fringing, low-medium halation, medium highlight softening, low edge softness, fine grain, medium-high contrast. Best for historical realism, natural light, firelight, laboratories, meetings, large rooms, heavy physical images.
-- Brutalist Optical Look: 4-6% edge fringing, low halation, medium-low edge softness, restrained cool/warm separation on backlit concrete and glass, fine controlled grain, medium-high contrast. Best for architecture, concrete, halls, columns, interiors, modernist power.
-- Blade Runner 2049 Optical Look: 6-10% atmospheric color separation, medium halation, medium bloom, high atmospheric density, medium-low edge softness, fine grain, medium contrast, low-medium saturation with strong color atmosphere. Best for fog, dust, desert, night cities, glass, vehicles, wet ground, sci-fi scale.
-
-## Vintage Film Stock / Anti-Oily Calibration
-
-When a result feels oily, too smooth, too amber, or too CG-clean, apply this calibration before generating again:
-- Replace "warm golden cinematic light" with "aged tungsten practical light, amber but dirty and low-output".
-- Keep amber highlights local. Do not let the whole frame become honey-gold or lacquered.
-- Put grain mostly in shadows and midtones, with irregular fine-to-medium density. Avoid uniform grain overlays.
-- Add period film-stock texture: slight gate softness, imperfect emulsion, mild color density variation, matte blacks, and muted warm highlights.
-- Lower saturation in skin, fabric, polished wood, brass, and water reflections. Skin should be natural, slightly dark, textured, and not waxy.
-- Make fabrics absorb light: wool, felt, linen, canvas, and old coats should look dry, fibrous, and non-reflective.
-- Make stone, plaster, wood, and metal aged by dirt, oxidation, scratches, chipped paint, salt, smoke, or water stains.
-- Reduce bloom by half if lamps or windows start to look like a beauty filter.
-- Keep contrast shaped by real shadows, not by glossy high dynamic range.
-- Prefer "1970s/1990s cinema print density" or "aged release-print grain" over "vintage filter".
-
-For Venice / old palace / noir interiors:
-- Use olive-umber shadows, aged plaster, oxidized brass, dirty tungsten lamps, canal humidity, and smoke-darkened corners.
-- Avoid clean gold walls, shiny hotel-lobby polish, waxy faces, spotless suits, overly smooth water, and decorative fantasy luxury.
-- The image should feel like an old feature-film print: dense, tactile, slightly worn, and optically imperfect.
-
-Avoid naked or unsafe prompt terms:
-- Do not use "chromatic aberration" alone. Qualify it as subtle, local, optical, and only on high-contrast edges.
-- Avoid RGB split, heavy film grain, vintage filter, retro washed out, cinematic color grading, moody film still, anamorphic flare, hyper realistic, ultra detailed, razor sharp, dramatic neon, strong aberration.
-
-## Light and Color Rules
-
-Light must answer “where does it come from?” Use daylight, overcast light, sunset, moonlight, fire, candle, practical lamps, car lights, signs, corridor lights, portholes, industrial lights, or window reflection.
-
-Avoid source-less rim light, arbitrary blue/orange grading, dead black shadows, clipped white highlights, HDR, oversharp clarity, and random flares.
-
-Default color structure: one main color, one support color, one small accent. Useful combinations: cold gray + smoky blue + near black; dark gold + brown + deep black; ink green + cinnabar + fog white; sea blue + off-white + dark red; burnt orange + gray brown + metallic black.
-
-## Anti-CGI Film Texture Rules
-
-When the result risks looking oily, artificial, or game-like, use this stricter texture profile:
-- Say "photographed film still from a practical location" instead of only "cinematic".
-- Use matte, dry, dusty, worn, oxidized, weathered, or coarse material language instead of glossy, polished, glowing, sleek, or pristine surfaces.
-- Keep highlights dull and local. Avoid global glow, shiny specular edges, wet-looking skin, plastic armor, lacquered stone, and render-engine reflections.
-- Prefer available light and underexposed ambient fill. Do not add theatrical rim lights unless the scene has a visible practical source.
-- Add negative constraints: no CGI render, no Unreal Engine look, no game cinematic, no concept art, no fantasy illustration, no digital painting, no over-smooth surfaces, no glossy specular highlights, no plastic materials.
-- If ancient, sci-fi, fantasy, or epic subject matter is requested, ground it with mundane physical details: dust on fabric, chipped stone, uneven masonry, exhausted posture, practical tools, smoke from a real fire, footprints, condensation, scratches, and imperfect weather.
-
-## Preservation Rules
-
-If the user provides an original person image, preserve identity, facial features, expression, clothing, pose, and body proportions unless asked to change them. Adjust only composition, light, environment, camera quality, and atmosphere.
-
-If the user provides architecture/interior, preserve structure, doors/windows, wall proportions, furniture count and major positions, and design language.
-
-If the user provides a product/furniture object, preserve shape, proportion, material, color, structure, and identifying features. Cinematic transformation happens in scene, light, camera, spatial relation, color, composition, and narrative.
-
-Reference images are analysis material, not redraw templates. Extract abstract visual DNA only: lens distance, composition skeleton, spatial relation, light direction, color structure, texture, emotional density, foreground layers, character placement, and still/motion relation. Do not copy specific characters, costumes, scenes, camera positions, iconic shots, or signature color combinations.
-
-## Output Templates
-
-### Default Triptych
+## 0. 核心目标
+
+这不是“给普通图片加电影滤镜”的 Skill。
+
+目标是生成三张像从一部真实真人电影中截取的 21:9 镜头：
+
+- 构图有明确的观看立场与空间压力。
+- 色彩有设计，但来自场景、服装、天气与光源，而不是后期滤镜。
+- 人物处于事件之中，而不是站着摆拍。
+- 画面保留未解释的信息，具有剧情缺口和余韵。
+- 即使题材是神话、历史或科幻，也必须像真实片场、真实摄影机和真实演员拍摄。
+- 避免 CG 概念图、游戏宣传图、AI 壁纸、商业广告、偶像剧和普通电视剧截图。
+
+默认输出为 **3 张独立 21:9 镜头，最后纵向拼接成一组**。三张可以强连续，也可以弱关联；但必须共享同一综合色逻辑、成像介质和情绪母题。
+
+---
+
+## 1. 四条最高优先级规则
+
+### 1.1 构图必须由“关系压力”产生
+
+不要先随机选择“远景、前景虚焦、中轴、门框、负空间”。
+
+先判断：
+
+- 谁在看谁？
+- 谁知道得更多？
+- 谁正在离开，谁还在等待？
+- 人物被什么空间结构限制？
+- 观众位于事件内部、外部，还是错误的一侧？
+- 画面里什么东西比人物更有权力？
+
+再选择一个主要构图机制。每张图只保留一个主要机制，最多增加一个辅助机制。
+
+### 1.2 色彩必须是一项叙事决定
+
+不要默认阴冷、低饱和、蓝灰、雨天。
+
+每组三联必须先确定一句“色彩命题”，例如：
+
+- 一块褪色朱红在大面积潮湿青灰中持续存在。
+- 午后奶油黄逐渐被室内的病态绿色吞没。
+- 高明度粉灰与冷银色看似温柔，实际制造制度性的疏离。
+- 土黄、旧蓝和氧化红共同表现一个正在崩坏的时代。
+- 综合色从暖白日光进入暗红室内，最后只留下无色物件。
+
+色彩不能只是“好看”，必须改变观众对事件的判断。
+
+### 1.3 拒绝 CG、油腻 AI 与过度设计
+
+真实电影感来自：
+
+- 摄影机位置。
+- 演员调度。
+- 实际光源。
+- 场景尺度。
+- 光学限制。
+- 材质重量。
+- 剪辑关系。
+
+不是来自：
+
+- 史诗云层。
+- 魔法裂光。
+- 大量烟雾粒子。
+- 过亮轮廓光。
+- 玻璃般皮肤。
+- 全画面锐利细节。
+- 青橙调色。
+- 重颗粒、重色散和重光晕。
+
+### 1.4 拒绝平常化、电视剧化内容
+
+“一个人坐着等”“一个人看窗外”“一只手碰到一张纸”本身不是剧情。
+
+每组三联必须有一个可被推断、但未被完全解释的事件：
+
+- 某人来晚了，但另一人仍留下了座位。
+- 一场仪式已经开始，负责执行的人却拒绝盖章。
+- 家庭成员都在餐桌上，门后还有一个不该出现的人。
+- 船已经靠岸，乘客却把唯一的登船凭证撕成两半。
+- 战斗结束后，胜利者发现桌上留下的是自己的旧物。
+- 神话人物没有展示力量，而是在决定是否完成一件不可逆的事。
+
+画面要像电影中的“关键停顿”，不是信息完整的短视频剧情，也不是连续剧对白场景。
+
+---
+
+## 2. 参考图使用规则：只分析，不输入生成
+
+参考图只用于前期分析，不得作为图像生成模型的参考图、图生图底图或风格图。
+
+### 2.1 每次只能抽取一个维度
+
+从以下三项中只选择一项：
+
+1. 构图。
+2. 配色。
+3. 题材。
+
+其余两项必须原创。
+
+| 抽取内容 | 必须更换的内容 |
+|---|---|
+| 构图 | 题材、人物关系、动作、道具、综合色、时代背景 |
+| 配色 | 构图、机位、题材、人物、动作、道具与空间骨架 |
+| 题材 | 构图、综合色、人物关系、镜头位置和关键物件 |
+
+### 2.2 禁止复用
+
+禁止复用参考中的：
+
+- 相同人物数量与位置。
+- 相同人物关系。
+- 相同动作节点。
+- 相同道具组合。
+- 相同空间骨架。
+- 相同标志性机位。
+- 相同综合色与光源组合。
+- 相同剧情结果。
+
+### 2.3 原创隔离检查
+
+生成前必须检查：
+
+- 是否同时借用了构图和配色？
+- 是否仍能一眼认出参考图的轮廓？
+- 是否只是把人物和服装替换了？
+- 是否重复了参考的“人物—道具—空间”三角关系？
+
+只要两项以上高度接近，就重新设计。
+
+---
+
+## 3. 内部生成流程
+
+每次生成前，按以下顺序完成判断：
+
+### Step 1｜定义不可解决的状态
+
+用一句话描述人物当前无法立刻解决的问题。
+
+示例：
+
+- 两个人都知道真相，但都在等对方先说。
+- 仪式必须继续，但负责执行的人已经改变立场。
+- 人物终于到达目的地，却发现等待他的不是预期对象。
+- 所有人都在庆祝，只有一个人看见了错误。
+- 神话英雄拥有力量，但真正困难的是是否使用它。
+
+不要使用“孤独、神秘、忧郁、诗意”等空泛形容词代替状态。
+
+### Step 2｜确定观众的位置
+
+选择一种观看关系：
+
+- 同处现场。
+- 隔着玻璃或门框观察。
+- 从另一人物肩后观察。
+- 从高处监视。
+- 从地面或倒地者视角观察。
+- 从车辆、镜面、屏幕或反射中观察。
+- 摄影机被困在一个狭窄位置。
+
+### Step 3｜选择主要构图机制
+
+从“构图压力库”中选择一个，不要堆叠。
+
+### Step 4｜选择三联剪辑结构
+
+从第 7 节中选择一种节奏，不固定远—中—近。
+
+### Step 5｜定义色彩命题
+
+写明：
+
+- 主色域。
+- 次色域。
+- 唯一强调色。
+- 颜色来自哪里。
+- 三张图如何保持或变化。
+
+### Step 6｜确定真实摄影方案
+
+每组三联只选择一个主要成像基底：
+
+- 35mm release print。
+- 16mm television transfer。
+- 早期数字电影摄影机。
+- 长焦胶片压缩。
+- 手持纪录式 35mm。
+- 旧广播或监控转拍，仅在剧情需要时使用。
+
+### Step 7｜为每张图设置可见动作
+
+每张图只能有一个主要动作和一个次要线索。
+
+### Step 8｜完成四项否决检查
+
+- 是否像 CG？
+- 是否像广告？
+- 是否像电视剧？
+- 是否与参考图过近？
+
+任意一项成立，重写。
+
+---
+
+## 4. 构图系统：从空间压力出发
+
+### 4.1 构图压力库
+
+#### A. 被观察
+
+适用：秘密、监视、迟到、身份错位。
+
+方法：
+
+- 隔着玻璃、门缝、帘幕或人群。
+- 前景观察者只出现肩部、头部或模糊轮廓。
+- 关键动作发生在中远景。
+- 观众不拥有完整信息。
+
+#### B. 被困住
+
+适用：制度、命运、心理封闭、仪式压力。
+
+方法：
+
+- 几何边界、桌面、走廊、门洞或座椅将人物压在局部。
+- 极端俯拍或高位观察。
+- 人物尺度小于空间。
+- 空间秩序完整，但人物位置出现一处偏差。
+
+#### C. 关系疏离
+
+适用：家庭、亲密关系、谈判、诀别。
+
+方法：
+
+- 两人之间保留大面积空桌、床、走廊、地面或玻璃。
+- 视线不相遇。
+- 一人在亮区，一人在暗区，但不要戏剧化打光。
+- 让空间物件成为第三方。
+
+#### D. 权力不对等
+
+适用：审判、仪式、战争、组织、政治与宗教空间。
+
+方法：
+
+- 低机位或高位俯视，但必须有现实摄影机位置。
+- 巨大墙面、台阶、门、屏幕或人群控制人物比例。
+- 权力者不一定最大，可以由空间为其背书。
+
+#### E. 心理失衡
+
+适用：发现、错觉、恐惧、记忆断裂。
+
+方法：
+
+- 人物贴边。
+- 头顶空间过多。
+- 轻微倾斜。
+- 焦点落在背景而非人物。
+- 前景遮挡不完整。
+
+#### F. 事后状态
+
+适用：事件刚结束、某人已经离开、秘密已发生。
+
+方法：
+
+- 人物缺席。
+- 空椅、湿地、开着的门、未熄灭的灯、遗留衣物或错位物件。
+- 镜头保持克制，不拍“解释性证据墙”。
+
+#### G. 感官插入
+
+适用：决定、犹豫、危险临界点。
+
+方法：
+
+- 嘴、手、后颈、鞋、湿发、衣料、钥匙、纸张等局部。
+- 隐藏人物身份与空间全貌。
+- 动作停在完成之前。
+
+### 4.2 前景虚焦规则
+
+前景虚焦必须说明“摄影机为什么在这里”。
+
+有效前景：
+
+- 观察者肩部。
+- 门框、柱子、窗帘、车窗、座椅。
+- 近处人群经过。
+- 植物、栏杆、玻璃反射。
+- 与剧情有关的物件边缘。
+
+无效前景：
+
+- 随机黑色块。
+- 无意义的模糊花草。
+- 为了“电影感”硬加的遮挡。
+- 三张图都使用同一种虚焦轮廓。
+
+### 4.3 一张图只允许一个主要构图决定
+
+错误：
+
+> 中轴对称 + 极端俯拍 + 门框 + 前景虚焦 + 镜面反射 + 大量负空间。
+
+正确：
+
+> 以门框外部观察为主，人物在远处偏右；其余元素保持普通。
+
+### 4.4 21:9 的真实用途
+
+21:9 必须用于：
+
+- 展示人物之间的横向距离。
+- 让环境形成社会或心理压力。
+- 容纳前景、中景和背景的关系。
+- 保留画外空间。
+- 构成道路、走廊、海岸、桌面、城墙、车厢、队列或地平线的叙事。
+
+禁止把普通竖幅构图简单裁成宽屏。
+
+---
+
+## 5. 色彩系统：拒绝“所有电影都阴冷”
+
+### 5.1 色彩不是滤镜，而是场景中的物理关系
+
+每种颜色必须有现实来源：
+
+- 服装。
+- 墙体或家具。
+- 天气与自然光。
+- 实际灯具。
+- 植物、土壤、水面、烟尘。
+- 时代材料与印刷物。
+
+不要用统一后期把所有物体染成同一种颜色。
+
+### 5.2 每组三联限定色谱
+
+建议：
+
+- 2 个主色域。
+- 1 个过渡色域。
+- 1 个小面积强调色。
+
+强调色面积通常不超过画面的 5%–15%。
+
+### 5.3 七种可用的色彩演绎方式
+
+#### 1. 大色块叙事
+
+以服装、墙体、旗帜、窗帘、地面或自然环境形成主色块。
+
+要求：颜色来自布景和人物，不是强行调色。适合仪式、权力、历史转折与群像。
+
+#### 2. 限定色谱
+
+全片只围绕少数相邻色展开，例如：奶油黄、烟草棕、橄榄绿；或灰蓝、石灰白、氧化红。
+
+适合现代生活、家庭、城市和低调悬疑。
+
+#### 3. 互补色冲突
+
+使用一组低纯度互补色表达关系冲突，例如旧红与病态绿、土黄与暗蓝。
+
+避免饱和度过高，不要做 MV 或游戏海报。
+
+#### 4. 光色分离
+
+日光与室内实景灯拥有不同色温，人物位于两者交界。
+
+适合离开、等待、记忆、身份转变。
+
+#### 5. 空气综合色
+
+通过雾、雨、海风、灰尘、玻璃或水面反射形成整体色彩，不依赖物体本身鲜艳。
+
+适合海洋、历史、城市、神话和自然题材。
+
+#### 6. 高明度色彩
+
+高明度不等于甜美或广告。
+
+可使用：暖白、浅灰、淡蓝、褪粉、米黄和柔和绿色，但必须保留真实曝光、阴影和人物状态。
+
+适合白天、未来、医院、机场、现代建筑和制度空间。
+
+#### 7. 光学混色与自然反射
+
+从自然光、天空、水面、玻璃、树叶和皮肤之间产生细微色彩变化。可借鉴印象派观察颜色的方法，但保持真人电影摄影，不生成油画笔触。
+
+适合午后、花园、海岸、夏日、记忆和人物近景。
+
+### 5.4 经典电影色彩经验的转译原则
+
+可以研究经典电影中的：
+
+- 大色块控制。
+- 严格限定色谱。
+- 对称空间中的颜色节奏。
+- 服装与环境的色彩冲突。
+- 自然光中的光学混色。
+- 一个强调色贯穿多场戏。
+
+但必须：
+
+- 不在最终提示词里依赖导演名字。
+- 不复刻具体电影镜头。
+- 将风格翻译为可见的布景、服装、光源、综合色比例和曝光关系。
+
+### 5.5 三张图的色彩连续方式
+
+可选择：
+
+- **稳定色域**：三张保持一致，只改变光线密度。
+- **内外转场**：冷或中性外景 → 暖室内 → 去色余韵。
+- **强调色移动**：同一个强调色从人物转移到物件或背景。
+- **色彩消退**：第一张最完整，第三张只剩少量颜色。
+- **综合色反转**：前两张看似温暖，第三张进入冷白现实；必须由空间变化驱动。
+
+---
+
+## 6. 真实电影拍摄系统
+
+### 6.1 真人与实景优先
+
+默认写明：
+
+- live-action feature film still。
+- real actor。
+- practical location or physical set。
+- natural skin texture。
+- physically plausible costume and props。
+
+神话、历史和科幻也必须遵循。
+
+### 6.2 摄影机必须有实体位置
+
+每张图至少明确以下五项：
+
+- 焦段。
+- 摄影机高度。
+- 与主体距离。
+- 主体在画面中的比例。
+- 主空间轴线。
+- 是否有前景遮挡。
+- 焦点位置。
+- 主要光源。
+- 人物视线。
+- 关键信息位于前、中、后景的哪一层。
+
+### 6.3 建议镜头基底
+
+- 24–28mm：空间与人物比例，避免夸张透视。
+- 32–40mm：现场观察、关系调度。
+- 50mm：自然人物距离。
+- 65–85mm：压缩、局部和观察感，不要奶油化虚化。
+- 长焦隔窗：适合被观察、城市与离别。
+- 极端俯拍或低机位：只在剧情要求时使用。
+
+### 6.4 胶片与数字质感
+
+默认优先：
+
+- 柔和高光过渡。
+- 中低微反差。
+- 适度清晰，不锐利到像渲染图。
+- 局部轻微失焦。
+- 轻微曝光误差。
+- 暗部保留结构，但允许少量压黑。
+- 非常轻的、不均匀颗粒。
+
+用户已明确偏好：
+
+- 画面干净。
+- 不要脏旧感。
+- 不要大量噪点。
+- 不要明显复古颗粒。
+- 暗调可以，但不能靠脏、灰、糊制造电影感。
+
+### 6.5 光源规则
+
+每张图最多设置一个主光源和一个自然反射或次级实景光。
+
+优先：
+
+- 单窗日光。
+- 阴天漫射光。
+- 午后硬光。
+- 天光与室内钨丝灯交界。
+- 荧光灯制度空间。
+- 烛火、油灯、火堆等历史实景光。
+- 水面、雪地、墙体的反射光。
+
+禁止无来源的轮廓光和到处发光的物体。
+
+---
+
+## 7. 三联叙事结构
+
+三联不再固定为“建立—发展—余韵”，根据题材选择以下结构。
+
+### 7.1 空间—人物—证据
+
+1. 展示事件发生的空间与限制。
+2. 人物处于一个未完成动作中。
+3. 局部物件改变观众对前两张的理解。
+
+### 7.2 秩序—异常—残留
+
+1. 稳定、完整的空间秩序。
+2. 一处行为或位置出现异常。
+3. 人物消失，只剩事件残留。
+
+### 7.3 观察者—被观察者—盲区
+
+1. 先确定观察者的位置。
+2. 展示被观察者的具体行为。
+3. 展示双方都未注意到的信息。
+
+### 7.4 远距—突然贴近—空镜
+
+1. 人物很小，环境占主导。
+2. 突然切入脸部、身体或动作局部。
+3. 空间仍在，但人已经离开或改变位置。
+
+### 7.5 平行情绪三片段
+
+三张人物或场景可以不同，只统一：
+
+- 色彩命题。
+- 成像介质。
+- 情绪密度。
+- 一个重复但变形的视觉线索。
+
+### 7.6 事件前—临界点—不可逆结果
+
+适合历史、神话、科幻和悬疑。
+
+不要直接拍最大场面。优先拍：
+
+- 决定发生前的等待。
+- 动作即将完成的临界点。
+- 结果发生后的微小物件或人物反应。
+
+### 7.7 三联变化要求
+
+三张至少变化四项：
+
+- 景别。
+- 机位高度。
+- 人物与环境比例。
+- 构图机制。
+- 信息密度。
+- 焦点层。
+- 光线方向。
+- 人物状态。
+
+禁止连续三张都以人物居中、站立、看远方作为核心。
+
+---
+
+## 8. 拒绝电视剧化的内容设计
+
+### 8.1 电视剧化的典型症状
+
+- 标准正反打。
+- 人物端正坐着对话。
+- 表情完整、信息明确。
+- 每张图都解释剧情。
+- 房间干净、灯光均匀、演员好看。
+- 通过信、票、钥匙等万能道具机械制造故事。
+- 三联永远是全景、人物、手部物件。
+
+### 8.2 更电影化的替代方式
+
+- 对话不拍说话者，拍未回应的人或空位。
+- 关键动作发生在画面边缘、反射或背景。
+- 重要人物只出现背影、局部或不出现。
+- 道具不直接写出答案，只改变关系。
+- 允许一张“无聊但真实”的过渡镜头。
+- 让时间、空间、天气和群体调度承担叙事。
+- 让表情保持不完整，避免“演给镜头看”。
+
+### 8.3 剧情种子库
+
+每次随机选择或重写一个：
+
+- 错过。
+- 误认。
+- 拒绝执行。
+- 迟到后的等待。
+- 仪式中的缺席。
+- 秘密被第三人看到。
+- 胜利后的错误。
+- 归来后无法进入。
+- 交换物被调包。
+- 记忆与现实不一致。
+- 群体庆祝中的个人恐惧。
+- 救援完成后发现对象错误。
+- 神谕、命令或制度要求与个人决定冲突。
+
+不要重复使用“纸条、钥匙、照片、信封”作为默认剧情核心。
+
+---
+
+## 9. 反 CG、反油腻、反 AI 规则
+
+### 9.1 强制禁止
+
+- CGI concept art。
+- game cinematic key art。
+- fantasy poster。
+- superhero scale。
+- hyper-detailed digital rendering。
+- volumetric light everywhere。
+- glowing magic cracks。
+- floating particles everywhere。
+- excessive smoke, fog and sparks。
+- teal-orange blockbuster grading。
+- glossy skin。
+- perfect costume and props。
+- razor-sharp background。
+- HDR clarity。
+- artificial rim light。
+- neon cyberpunk as default future style。
+- clean utopian white-and-pink future advertising aesthetic。
+- overly ornate ancient costume-drama aesthetic。
+
+### 9.2 每张画面限制
+
+- 2–3 个具体场景信息。
+- 1 个主要动作。
+- 1 个次要线索。
+- 1 个主光源。
+- 1 个主要构图机制。
+
+### 9.3 真实限制比“高级感”更重要
+
+允许：
+
+- 人物部分被挡。
+- 背景不清晰。
+- 空间局部普通。
+- 服装有重量和使用痕迹。
+- 面部不完美。
+- 光线不均匀。
+- 一部分暗部看不清。
+- 天空或窗户轻微过曝。
+
+禁止为了“高级”让所有物体都精致、干净、发光。
+
+---
+
+## 10. 题材专项规则
+
+### 10.1 现代题材
+
+避免：办公楼宣传片、都市情感剧、建筑广告。
+
+增加：
+
+- 制度空间与人物位置冲突。
+- 城市中的非对称关系。
+- 实际交通、玻璃、反射、公共空间与群体。
+- 白天可使用高明度色彩，但保持真实曝光和事件压力。
+
+### 10.2 东方古代题材
+
+避免：
+
+- 仙侠。
+- 武侠游戏。
+- 古装偶像剧。
+- 大量红墙、灯笼、雨夜、黑衣的重复组合。
+- 精致服化道展示。
+
+优先：
+
+- 门、廊、桥、帘、院、台阶和水面构成关系。
+- 人物小于建筑与秩序。
+- 颜色来自漆墙、织物、土、木、灰瓦、植物和火光。
+- 可明亮、可温暖、可干燥、可高饱和，但必须有真实材质和光源。
+- 叙事围绕仪式、权力、离别、误认、等待与选择，而不是摆造型。
+
+### 10.3 未来与科幻题材
+
+默认禁止“纯白流线建筑 + 粉色树 + 透明发光物 + 漂亮年轻人”的未来广告审美。
+
+未来感来自：
+
+- 社会制度。
+- 新型公共空间。
+- 人与技术的具体关系。
+- 材料和基础设施的可信变化。
+- 日常行为中的异常规则。
+
+优先使用：
+
+- 真实混凝土、金属、玻璃、织物和可制造结构。
+- 低调设备、屏幕、机械接口和环境系统。
+- 普通人物面对非普通制度。
+- 实景搭建感与少量隐形特效。
+
+### 10.4 历史与神话题材
+
+不要把“大事件”直接做成百科插图或战争海报。
+
+选择：
+
+- 大事件前的个人决定。
+- 大事件中的局部视角。
+- 大事件后的残留。
+- 传说中最具人性矛盾的一刻。
+
+神话也必须像真人实景电影：
+
+- 人物尺度尽量接近人类。
+- 巨大感由地貌、摄影机、声音想象和环境反应表达。
+- 特效只承担必要的不可拍部分。
+- 不使用超级英雄姿态和游戏级视觉奇观。
+
+示例转译：
+
+- 盘古开天：不拍巨人撕裂宇宙；拍原始山谷中一个近人类尺度的人物决定是否撑起正在坍塌的岩层，天地变化通过风、尘、水汽和自然光进入表达。
+- 奥德赛：不拍健美英雄面对奇幻岛屿；拍疲惫船员、真实木船、盐渍服装、陌生海岸和一个无法确认的归途信号。
+- 法国大革命：不拍整齐英雄群像；拍混乱街巷、临时路障、局部人群、褪色旗帜和一个具体选择。
+
+### 10.5 佛教或宗教科幻
+
+避免符号堆砌与“寺庙加机器”。
+
+先确定宗教逻辑与技术冲突：
+
+- 记忆是否可以被转移？
+- 仪式是否仍需由人完成？
+- 轮回被技术证明后，制度如何变化？
+- 一个修行者是否拒绝使用可消除痛苦的设备？
+
+宗教空间保持庄重、克制、真实；设备应少而可信。
+
+### 10.6 武侠科幻
+
+避免：飞剑、悬浮灯笼、霓虹古城、机械长剑和游戏盔甲的直接拼贴。
+
+先保留武侠核心：
+
+- 身法。
+- 门派秩序。
+- 克制的武器关系。
+- 江湖身份。
+- 观看与被观看。
+- 空间阈限。
+
+再加入一个技术变量，不超过一个。
+
+---
+
+## 11. 提示词写作规范
+
+### 11.1 默认语言
+
+用户未指定时：
+
+- 电影判断与三联结构用中文。
+- 最终图像提示词用英文，便于直接复制。
+
+### 11.2 每张提示词结构
+
+按以下顺序写：
+
+1. 画幅与成像基底。
+2. 具体时间、空间和人物。
+3. 主要动作与未完成状态。
+4. 摄影机位置、焦段、景别和构图机制。
+5. 实际光源。
+6. 色彩命题。
+7. 真实材质与光学限制。
+8. 精简负面约束。
+
+### 11.3 禁止空泛词堆叠
+
+减少：
+
+- cinematic。
+- beautiful。
+- poetic。
+- emotional。
+- mysterious。
+- dramatic。
+- atmospheric。
+- masterpiece。
+- epic。
+
+必须将其替换为可见事实。
+
+### 11.4 推荐英文基底
+
+可按需要组合，不要全部堆入同一条：
+
+> live-action feature-film still, practical location, real actors, physically plausible set and props, restrained production design, soft highlight roll-off, medium-low microcontrast, subtle uneven grain, local optical softness, natural skin texture, no commercial fill light
+
+### 11.5 推荐负面补丁
+
+> no CGI concept art, no game key art, no glossy AI rendering, no HDR, no plastic skin, no excessive particles, no fantasy poster composition, no teal-orange grading, no artificial rim light, no commercial beauty lighting, no television-drama blocking
+
+---
+
+## 12. 默认输出格式
 
 ```markdown
+## 主题｜一句话
+
 ### 电影判断
-- 输出模式：三联叙事
-- 叙事模板：
-- 主引擎：
-- 辅助引擎：
-- 人物状态：
-- 构图：
-- 镜头体系：
-- 光线：
-- 色彩：
-- DNA：
+- 不可解决的状态：
+- 观众位置：
+- 主要构图压力：
+- 色彩命题：
+- 成像基底：
+- 三联节奏：
 
-### Shot 1｜建立镜头
-[one complete 21:9 prompt]
+### Shot 1｜镜头功能
+完整英文提示词
 
-### Shot 2｜关系镜头
-[one complete 21:9 prompt]
+### Shot 2｜镜头功能
+完整英文提示词
 
-### Shot 3｜余韵镜头
-[one complete 21:9 prompt]
+### Shot 3｜镜头功能
+完整英文提示词
+
+### 拼接方式
+三张独立 21:9 横幅，纵向拼接；默认等高 1:1:1，黑色间隔 8–12 px，不加文字、不加边框装饰、不加字幕。
 ```
 
-### Single Frame
+用户只要图像时，不输出解释，直接生成三张独立镜头并完成纵向拼接。
 
-```markdown
-### 电影判断
-- 输出模式：单帧
-- 主引擎：
-- 辅助引擎：
-- 人物状态：
-- 构图：
-- 镜头：
-- 光线：
-- 色彩：
-- DNA：
+---
 
-### 提示词
-[one complete 21:9 prompt]
-```
+## 13. 三联拼接规则
 
-### Original Image Provided
+优先生成三张独立 21:9，再外部拼接，不让图像模型在同一画布里同时画三张，以避免人物、比例和画幅失控。
 
-```markdown
-### 原图锁定
-[what must remain unchanged]
+默认：
 
-### Shot 1｜建立镜头
-[prompt]
+- 单张比例：21:9 或 2.39:1。
+- 纵向拼接。
+- 黑色呼吸间隔：8–12 px。
+- 无文字、无序号、无水印、无分镜边框装饰。
 
-### Shot 2｜关系镜头
-[prompt]
+可选节奏：
 
-### Shot 3｜余韵镜头
-[prompt]
-```
+- 等高：1:1:1。
+- 开场更大：1.2:0.9:0.9。
+- 中段冲击：0.9:1.2:0.9。
+- 结尾余韵：0.9:0.9:1.2。
 
-## Quality Check
+---
 
-Before final output, verify:
-- Narrative: previous second, next second, reason the subject is there, conflict, and aftertaste.
-- Continuity: same subject/clothing/space/time/light/color across triptych; not three unrelated variants.
-- Character identity: recurring people keep the same ethnicity/regional facial type, age range, face anchors, hair, build, wardrobe, and repeated prop; regenerate any drifting frame before delivery.
-- Progression: shot scale, camera position, composition, emotional density, and focus evolve.
-- 21:9: horizontal staging is purposeful, not just cropped.
-- Light: real source, readable shadows, no fake cinematic glow.
-- Color: controlled 2-3 color relationship, natural skin/materials, no overdone teal/orange, dirty yellow, gray wash, or plastic saturation.
-- Texture: film-camera feel, gentle grain, soft highlights, tactile materials, photographed rather than rendered.
-- Style: director DNA translated into specific visible choices and not copied from known frames.
-- Naturalness: no game-engine lighting, no glossy CGI surfaces, no heroic concept-art pose, no over-clean costume, no impossible blue/orange rim light, and no spectacle-first composition unless requested.
-- V4 realism: no uniform detail density, no prompt-showoff clutter, visible capture substrate, one dominant imperfection family, and a triptych rhythm that would not read the same if shuffled.
+## 14. 最终自检
+
+### 14.1 构图检查
+
+- 每张图的主要构图决定是什么？
+- 摄影机为什么在这个位置？
+- 前景虚焦是否有叙事意义？
+- 人物是否被空间关系影响？
+- 三张图是否只是同一构图换角度？
+
+### 14.2 色彩检查
+
+- 色彩命题是否可以用一句话说清？
+- 颜色是否来自场景、服装、天气与光源？
+- 是否又自动变成蓝灰阴冷？
+- 是否有明确主次，而不是所有颜色都鲜艳？
+- 三张图的色彩变化是否有动机？
+
+### 14.3 真实电影检查
+
+- 是否像真人、实景和真实摄影机？
+- 是否存在无法解释的发光、反射或烟雾？
+- 是否所有细节都过度清晰？
+- 皮肤、服装和材质是否具有重量？
+- 特效是否少而必要？
+
+### 14.4 剧情检查
+
+- 人物正在做什么，而不是“处于什么情绪”？
+- 有什么信息没有被解释？
+- 三张图的顺序能否被随意打乱？若可以，说明剪辑关系太弱。
+- 是否依赖万能道具制造故事？
+- 是否像电视剧的正反打、家庭对话或广告剧情？
+
+### 14.5 原创检查
+
+- 是否只抽取了参考的一个维度？
+- 是否复用了人物关系、动作、道具和空间骨架？
+- 是否能一眼联想到某张具体电影静帧？
+- 是否在提示词里直接要求复制某导演或电影？
+
+任一关键检查不通过，必须重写，不进入生成。
+
+---
+
+## 15. 评分标准
+
+满分 100，低于 82 分不生成。
+
+| 项目 | 分值 |
+|---|---:|
+| 构图有明确空间压力与观看立场 | 25 |
+| 色彩命题清晰、物理来源可信 | 20 |
+| 真人实景与摄影机质感 | 20 |
+| 剧情有缺口、非电视剧化 | 20 |
+| 三联剪辑变化与整体统一 | 10 |
+| 原创隔离与参考安全 | 5 |
+
+一票否决：
+
+- 明显 CG / 游戏宣传图。
+- 过度油腻 AI 光效。
+- 普通电视剧式内容。
+- 直接复刻参考图。
+- 三张同机位、同动作、同构图。
+
+---
+
+## 16. 最终原则
+
+**构图不是装饰，而是人物与空间之间的权力关系。**
+
+**色彩不是滤镜，而是事件发生方式的一部分。**
+
+**电影感不是颗粒、色散和黑边，而是摄影机在正确的位置拍到了正确的停顿。**
+
+**真正高级的画面不需要每一处都精彩，只需要一个决定足够准确。**
