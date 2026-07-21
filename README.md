@@ -57,6 +57,30 @@
 
 这些示例来自同一套判断流程：不是先套滤镜，而是先确定镜头功能、光源、空间层次和叙事动作。
 
+### Selected Favorites
+
+![Hotel pink ritual triptych](examples/hotel-pink-ritual-triptych.jpg)
+
+![Venice palace triptych](examples/venice-palace-triptych.jpg)
+
+![Army fisheye first-person triptych](examples/army-fisheye-first-person-triptych.png)
+
+![Courthouse witness triptych](examples/courthouse-witness-triptych.png)
+
+![Green water memory triptych](examples/green-water-memory-triptych.png)
+
+![Cabaret aftermath triptych](examples/cabaret-aftermath-triptych.png)
+
+![Go shadow ink triptych](examples/go-shadow-ink-triptych.png)
+
+![Green girl wide aperture triptych](examples/green-girl-wide-aperture-triptych.png)
+
+![Industrial ensemble ledger triptych](examples/industrial-ensemble-ledger-triptych.png)
+
+![Journey West original epic triptych](examples/journey-west-original-epic-triptych.png)
+
+### Core Examples
+
 ### Narrative Overview
 
 ![Warm narrative overview](examples/warm-narrative-overview.png)
