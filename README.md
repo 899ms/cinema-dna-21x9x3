@@ -1,67 +1,177 @@
-# cinema-dna-21x9x3
+# Cinema DNA 21:9 x 3
 
-一开始我也以为，电影感就是压暗、颗粒、黑边和一句 `cinematic`。
+把人物、空间、建筑、神话、科幻、运动、动画题材或一句简单剧情，转译成更像真实电影镜头的 **21:9 三联叙事画面**。
 
-但拆完 300 个电影镜头后，我发现：
+这个 skill 不是给图片套“电影感滤镜”。它关注的是：摄影机为什么在这里，观众先看见什么，人物被什么空间关系限制，色彩从哪里来，以及三张图之间的剪辑节奏是否真的成立。
 
-真正决定画面像不像电影的，不是滤镜，而是四个判断：
+> 先判断，再生成。
 
-- **镜头：观众站在哪里？**
-- **光线：这一刻为什么被照亮？**
-- **空间：画面如何从前景走向后景？**
-- **叙事：这个瞬间正在发生什么？**
+## Why
 
-所以这次，我没有继续堆提示词。
+很多 AI 图像提示词会把电影感写成：
 
-而是把这套判断流程写进了 Codex：
+- cinematic
+- dramatic lighting
+- film grain
+- teal and orange
+- shallow depth of field
+- epic composition
+
+结果常常变成广告图、游戏概念图、CG 海报，或者三张互不相干的漂亮截图。
+
+`cinema-dna-21x9x3` 把生成流程改成一组可执行的镜头判断：
 
 ```text
-任务分析
-→ 镜头方案
-→ 光线与色彩脚本
-→ 空间组织
-→ 叙事线索
-→ 输出完整生成方案
+关系压力
+-> 视线流量
+-> 受控随机构图
+-> 色彩命题
+-> 真实摄影方案
+-> 三联剪辑节奏
+-> 反 CG / 反 AI / 反模板化检查
 ```
 
-它不会一上来就生成图片，而是先判断这个镜头为什么成立。
+## What It Does
 
-这也不是摄影教程，更不是复刻某一部电影。我只是把电影镜头背后的生成逻辑提取出来，重新整理成一套可以反复执行的 AI Skill。
+默认输出一组 **3 张独立 21:9 镜头**，再纵向拼接成一张三联图。
 
-**先判断，再生成。**
+每张镜头都要求回答：
 
-## What This Skill Does
+- 观众站在哪里？
+- 谁在看谁，谁知道得更多？
+- 视线从哪里进入画面？
+- 什么东西改变视线速度？
+- 视线最终落到哪个决定性信息？
+- 哪些信息保留在边缘、反射、遮挡或失焦中？
+- 色彩来自场景、服装、天气还是实景光源？
+- 这张图为什么不像广告、游戏、CG 或电视剧？
 
-`cinema-dna-21x9x3` 是一个 Codex skill，用来把人物、空间、产品、建筑、参考图或简单故事，转换成真实电影感的 21:9 画面生成方案。
+## Core Rules
 
-默认输出是三张连续叙事镜头：
+### 1. Composition Comes From Pressure
 
-- **Shot 1 | 建立世界**：交代地点、时间、空间秩序和人物与世界的距离。
-- **Shot 2 | 建立关系**：推进事件，让人物、空间和冲突发生关系。
-- **Shot 3 | 留下余韵**：减少信息，留下背影、空房间、物件、反射或未完成的动作。
+构图不是装饰。先判断人物与空间之间的权力关系，再决定机位。
 
-它关注的不是“像电影的滤镜”，而是镜头成立的原因：机位、焦段、光源、空间层次、叙事动作、材质真实感和画面里的未解信息。
+常用压力类型包括：
 
-## When To Use
+- 被观察：门缝、玻璃、人群、监视位置
+- 被困住：桌面、走廊、台阶、座椅、制度空间
+- 关系疏离：两人之间的空桌、玻璃、地面、床或长廊
+- 权力不对等：巨大墙面、台阶、旗位、宗教或政治空间
+- 心理失衡：贴边、过多头顶空间、焦点落在背景
+- 感官插入：手、汗水、鞋、衣料、头盔、器械边缘
 
-适合用于：
+### 2. Every Frame Needs Visual Traffic
 
-- 电影感 AI 图像提示词设计
-- 21:9 单帧或三联镜头方案
-- 人像、建筑、空间、产品的电影化转译
-- 从参考图中提取镜头语言，而不是复刻画面
-- 把导演风格拆成具体可执行的视觉语法
-- 修正 AI 图常见的广告感、游戏感、CG 感和滤镜感
+每张图先写一句“视线流量”：
 
-## Examples
+```text
+视线从 A 进入，被 B 放慢或遮挡，落到 C，最后被 D 带走。
+```
 
-这些示例来自同一套判断流程：不是先套滤镜，而是先确定镜头功能、光源、空间层次和叙事动作。
+如果这句话写不清，说明构图只是元素堆叠。
 
-### Selected Favorites
+### 3. Random, But Not Template Random
+
+当用户说“随机”“发散”“自己想题材”时，skill 不会直接抽远景、中景、特写模板。
+
+它会先分析：
+
+- 题材天然的运动方向
+- 角色与环境的权力关系
+- 观众应该站在事件内部、外部、错误一侧，还是反射/设备内部
+- 当前题材最独特的视线入口、阻断点、落点和出口
+- 哪些镜头会变成上一组的重复套路
+
+然后再受控随机出构图策略。
+
+### 4. Shot 3 Is Not Always A Dead Object
+
+旧版本容易把第三张做成“空房间 + 主人公物件 + 悬疑余韵”。现在必须避免这个套路。
+
+第三张可以是：
+
+- 身体压力后的喘息
+- 群体视线或集体反应
+- 关系站位发生变化
+- 现场继续运行
+- 规则被临时改写
+- 人物没有解释，但行动已经变了
+
+物件残留仍然可用，但不能成为默认公式。
+
+### 5. Color Is A Narrative Decision
+
+色彩必须来自画面内部：
+
+- 服装
+- 墙体
+- 天气
+- 实景灯
+- 水面、雪地、玻璃、植物反射
+- 时代材料
+
+不要默认蓝灰阴冷，也不要靠后期滤镜制造“高级感”。
+
+### 6. IP And Style Safety
+
+可以做“动画片感”“手工木偶感”“黑色幽默”“童话”“科幻运动”等方向，但不要复刻现成 IP。
+
+推荐做法：
+
+- 把“某大厂动画风格”转译成材质、表情、布景、色彩和镜头调度
+- 避开具体角色组合、职业设定、城市系统和标志性场景骨架
+- 用原创主角、原创世界规则和原创冲突
+
+例如：
+
+```text
+手工木偶定格 + 水彩纸背景 + 欧洲小剧场插画
+```
+
+比直接写某个动画工作室或某部电影更安全，也更可控。
+
+## Example Gallery
+
+### Stop-motion Watercolor Theater
+
+手工木偶定格、水彩纸背景、欧洲河港小剧场。强调手作材质和小剧场调度，避开大厂 3D 动画的光滑质感。
+
+![Stop-motion watercolor theater triptych](examples/stopmotion-watercolor-theater-triptych.jpg)
+
+### Anti-template Rhythm Tests
+
+这组用于修正“第三张总是物件残留”的问题。收尾改为人物、群体、身体压力和公共现场继续运行。
+
+![Non-residue rhythm overview](examples/non-residue-rhythm-overview.jpg)
+
+### Sci-fi Ice Ring Mine City
+
+科幻星球不靠霓虹和巨构奇观，而是用矿车时刻表、成人礼队伍和冰环环境制造制度压力。
+
+![Sci-fi ice ring mine city triptych](examples/scifi-ice-ring-mine-city-triptych.jpg)
+
+### Original Anthropomorphic Animal Theater
+
+拟人动物可以有 IP 感、表情和服装，但避开现成动物都市设定。这里转成河港小剧场和手作舞台逻辑。
+
+![Anthro harbor theater triptych](examples/anthro-harbor-theater-triptych.jpg)
+
+### Sci-fi Underwater Football
+
+运动题材不固定为“背影、主观、脸部特写”。水下穹顶足球用球、阀门、队友人墙和规则故障形成动作节奏。
+
+![Sci-fi underwater football triptych](examples/scifi-underwater-football-triptych.jpg)
+
+### Bagua Sea Platform
+
+东方玄学题材不使用发光法术和游戏化对决，而用潮水、站位、宗派距离和八卦地面关系表达权力变化。
+
+![Bagua sea platform triptych](examples/bagua-sea-platform-triptych.jpg)
+
+### Earlier Favorites
 
 ![Hotel pink ritual triptych](examples/hotel-pink-ritual-triptych.jpg)
-
-![Venice palace triptych](examples/venice-palace-triptych.jpg)
 
 ![Army fisheye first-person triptych](examples/army-fisheye-first-person-triptych.png)
 
@@ -69,60 +179,100 @@
 
 ![Green water memory triptych](examples/green-water-memory-triptych.png)
 
-![Cabaret aftermath triptych](examples/cabaret-aftermath-triptych.png)
-
-![Go shadow ink triptych](examples/go-shadow-ink-triptych.png)
-
-![Green girl wide aperture triptych](examples/green-girl-wide-aperture-triptych.png)
-
-![Industrial ensemble ledger triptych](examples/industrial-ensemble-ledger-triptych.png)
-
 ![Journey West original epic triptych](examples/journey-west-original-epic-triptych.png)
 
-### Core Examples
+## Typical Requests
 
-### Narrative Overview
+```text
+用 cinema-dna 生成一组：科幻足球，球场在水下穹顶里。
+```
 
-![Warm narrative overview](examples/warm-narrative-overview.png)
+```text
+随机测试 5 组，题材和色调拉开，至少一组构图巧妙。
+```
 
-### Dumpling Shop Triptych
+```text
+做一个拟人动物动画片感，但不要抄疯狂动物城。
+```
 
-![Dumpling shop triptych](examples/dumpling-shop-triptych.png)
+```text
+根据这张参考图，只抽取构图，不要复用人物、配色和道具。
+```
 
-### Blue Sea And Large Ship
+```text
+这组三联第三张不要再做空场物件，保持人物和群体还在动作里。
+```
 
-![Blue sea large ship triptych](examples/blue-sea-large-ship-triptych.png)
+## Output Format
 
-### Eastern Palace Ritual
+默认生成：
 
-![Eastern palace triptych](examples/eastern-palace-triptych.png)
+```text
+Shot 1: independent 21:9 frame
+Shot 2: independent 21:9 frame
+Shot 3: independent 21:9 frame
+Final: vertical triptych stitched from the three frames
+```
 
-### Absurd Comedy Timing
+默认拼接规则：
 
-![Absurd comedy triptych](examples/absurd-comedy-triptych.png)
+- 单张为 21:9 或 2.39:1
+- 三张纵向拼接
+- 黑色间隔 8-12 px
+- 不加字幕、不加序号、不加水印、不加装饰边框
 
-## Workflow
+## Prompt Structure
 
-这个 skill 会优先完成判断，再输出提示词：
+每张图的最终英文 prompt 通常包含：
 
-1. 分析任务对象、故事状态和画面目标。
-2. 判断镜头功能：建立世界、建立关系，还是留下余韵。
-3. 设计机位、焦段、距离、画幅占比和前中后景关系。
-4. 确定光源、色彩结构和真实材质。
-5. 加入叙事线索，让画面不是静态摆拍。
-6. 输出完整的 21:9 生成方案。
+```text
+1. frame format and capture base
+2. specific time, place, characters
+3. visible action and unfinished state
+4. camera position, focal length, distance, scale
+5. main composition pressure
+6. practical light source
+7. color thesis
+8. real materials and optical constraints
+9. negative constraints
+```
 
-## Contents
+## What This Skill Avoids
 
-- `SKILL.md` - main skill instructions
+- CG concept art
+- game key art
+- AI wallpaper
+- overly glossy skin
+- generic teal-orange grading
+- excessive fog, particles and rim light
+- fashion/editorial posing when the task needs story
+- TV drama blocking
+- copying a specific director shot or existing IP
+- always ending with an abandoned object
+
+## Repository Contents
+
+- `SKILL.md` - main skill instructions used by Codex
 - `references/` - extended cinema grammar and anti-AI film-frame patches
-- `agents/` - display metadata
-- `examples/` - README example images
+- `agents/` - Codex UI metadata
+- `examples/` - compressed README example images
 
 ## Install
 
-Copy this folder into your Codex skills directory, for example:
+Copy this folder into your Codex skills directory:
 
 ```powershell
 Copy-Item -Recurse . "$env:USERPROFILE\.codex\skills\cinema-dna-21x9x3"
 ```
+
+If your Codex home has moved to another drive, copy it into that skills directory instead, for example:
+
+```powershell
+Copy-Item -Recurse . "D:\Codex_Moved_From_C\.codex\skills\cinema-dna-21x9x3"
+```
+
+## Design Principle
+
+真正高级的画面不需要每一处都精彩。
+
+它只需要一个决定足够准确：摄影机在正确的位置，拍到了人物与空间关系发生变化的那一刻。
