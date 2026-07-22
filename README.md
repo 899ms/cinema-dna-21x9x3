@@ -1,5 +1,7 @@
 # Cinema DNA 21:9 x 3
 
+**Version:** 1.2.1
+
 把人物、空间、建筑、神话、科幻、运动、动画题材或一句简单剧情，转译成更像真实电影镜头的 **21:9 三联叙事画面**。
 
 这个 skill 不是给图片套“电影感滤镜”。它关注的是：摄影机为什么在这里，观众先看见什么，人物被什么空间关系限制，色彩从哪里来，以及三张图之间的剪辑节奏是否真的成立。
@@ -133,11 +135,27 @@
 
 ## Example Gallery
 
-### Stop-motion Watercolor Theater
+### Selected Favorites
 
-手工木偶定格、水彩纸背景、欧洲河港小剧场。强调手作材质和小剧场调度，避开大厂 3D 动画的光滑质感。
+这些示例来自多轮测试后的精选结果。它们更强调三联节奏、构图流量、群体叙事、运动压力和真实场景里的综合色，而不是单张漂亮截图。
 
-![Stop-motion watercolor theater triptych](examples/stopmotion-watercolor-theater-triptych.jpg)
+![Mexico rodeo family rope triptych](examples/mexico-rodeo-family-rope-triptych.jpg)
+
+![Seventies TV dance marathon triptych](examples/seventies-tv-dance-marathon-triptych.jpg)
+
+![Tropical court greenhouse triptych](examples/tropical-court-greenhouse-triptych.jpg)
+
+![American football optical pressure triptych](examples/american-football-optical-pressure-triptych.jpg)
+
+![Laundromat note triptych](examples/laundromat-note-triptych.jpg)
+
+![Rain courtyard ledger triptych](examples/rain-courtyard-ledger-triptych.jpg)
+
+![Apartment family table triptych](examples/apartment-family-table-triptych.jpg)
+
+![Train window departure triptych](examples/train-window-departure-triptych.jpg)
+
+![Monastic observatory window triptych](examples/monastic-observatory-window-triptych.jpg)
 
 ### Anti-template Rhythm Tests
 
@@ -257,6 +275,10 @@ Final: vertical triptych stitched from the three frames
 - `agents/` - Codex UI metadata
 - `examples/` - compressed README example images
 
+## Privacy And Safety
+
+Public examples are renamed with descriptive titles and recompressed without source metadata. The README avoids local machine paths, usernames, temporary filenames and chat/export traces.
+
 ## Install
 
 Copy this folder into your Codex skills directory:
@@ -265,10 +287,10 @@ Copy this folder into your Codex skills directory:
 Copy-Item -Recurse . "$env:USERPROFILE\.codex\skills\cinema-dna-21x9x3"
 ```
 
-If your Codex home has moved to another drive, copy it into that skills directory instead, for example:
+If your Codex home has moved to another drive, set `CODEX_HOME` and copy into that skill directory:
 
 ```powershell
-Copy-Item -Recurse . "D:\Codex_Moved_From_C\.codex\skills\cinema-dna-21x9x3"
+Copy-Item -Recurse . "$env:CODEX_HOME\skills\cinema-dna-21x9x3"
 ```
 
 ## Design Principle
