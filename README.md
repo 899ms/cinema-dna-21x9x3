@@ -1,8 +1,8 @@
 # Cinema DNA 21:9 x 3
 
-**Version:** 1.2.1
+**Version:** 1.2.2
 
-把人物、空间、建筑、神话、科幻、运动、动画题材或一句简单剧情，转译成更像真实电影镜头的 **21:9 三联叙事画面**。
+把人物、空间、建筑、神话、科幻、运动、动画题材或一句简单剧情，转译成更像真实电影镜头的 **21:9 三联叙事画面**，并在需要时继续生成 **片名、带文字主题海报和完整视觉体系封面**。
 
 这个 skill 不是给图片套“电影感滤镜”。它关注的是：摄影机为什么在这里，观众先看见什么，人物被什么空间关系限制，色彩从哪里来，以及三张图之间的剪辑节奏是否真的成立。
 
@@ -30,12 +30,21 @@
 -> 色彩命题
 -> 真实摄影方案
 -> 三联剪辑节奏
+-> 片名与主题海报
 -> 反 CG / 反 AI / 反模板化检查
 ```
 
 ## What It Does
 
 默认输出一组 **3 张独立 21:9 镜头**，再纵向拼接成一张三联图。
+
+当任务面向全 AI 影片、短剧、概念预告或发布封面时，它会追加一个补充阶段：
+
+- 根据分镜核心冲突自动生成片名候选
+- 选出主片名、英文名和一句 logline
+- 从分镜中提炼主视觉符号，而不是把三张图简单拼贴
+- 输出带文字主题海报 prompt
+- 给出 2:3、16:9、1:1、9:16 的视觉体系封面规则
 
 每张镜头都要求回答：
 
@@ -221,6 +230,10 @@
 这组三联第三张不要再做空场物件，保持人物和群体还在动作里。
 ```
 
+```text
+给这组电影分镜自动取名，再补一张带文字主题海报和完整视觉体系封面。
+```
+
 ## Output Format
 
 默认生成：
@@ -230,6 +243,7 @@ Shot 1: independent 21:9 frame
 Shot 2: independent 21:9 frame
 Shot 3: independent 21:9 frame
 Final: vertical triptych stitched from the three frames
+Optional: title candidates + theme poster + visual-system cover
 ```
 
 默认拼接规则：
@@ -238,6 +252,8 @@ Final: vertical triptych stitched from the three frames
 - 三张纵向拼接
 - 黑色间隔 8-12 px
 - 不加字幕、不加序号、不加水印、不加装饰边框
+
+主题海报阶段默认采用两段式：先生成主视觉底图，再用排版工具叠加准确片名和小字。直接让图像模型画文字时，只使用一个短片名，并预留后期校正空间。
 
 ## Prompt Structure
 
@@ -267,6 +283,9 @@ Final: vertical triptych stitched from the three frames
 - TV drama blocking
 - copying a specific director shot or existing IP
 - always ending with an abandoned object
+- turning the film poster into a simple storyboard collage
+- using generic AI-film titles instead of story-driven names
+- relying on image models for dense, accurate small text
 
 ## Repository Contents
 
