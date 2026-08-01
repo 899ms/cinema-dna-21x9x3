@@ -1,8 +1,8 @@
 # Cinema DNA 21:9 x 3
 
-**Version:** 1.2.1
+**Version:** 1.2.2
 
-把人物、空间、建筑、神话、科幻、运动、动画题材或一句简单剧情，转译成更像真实电影镜头的 **21:9 三联叙事画面**。
+把人物、空间、建筑、神话、科幻、运动、动画题材或一句简单剧情，转译成更像真实电影镜头的 **21:9 三联叙事画面**，并可在用户明确要求时继续生成 **片名、带文字主题海报和完整视觉体系封面**。
 
 这个 skill 不是给图片套“电影感滤镜”。它关注的是：摄影机为什么在这里，观众先看见什么，人物被什么空间关系限制，色彩从哪里来，以及三张图之间的剪辑节奏是否真的成立。
 
@@ -30,12 +30,23 @@
 -> 色彩命题
 -> 真实摄影方案
 -> 三联剪辑节奏
+-> 可选：片名与主题海报
 -> 反 CG / 反 AI / 反模板化检查
 ```
 
 ## What It Does
 
 默认输出一组 **3 张独立 21:9 镜头**，再纵向拼接成一张三联图。
+
+片名与主题海报不是默认流程。只有当用户明确提出“片名、命名、海报、封面、视觉体系、发布主图”等需求时，它才会追加一个补充阶段：
+
+- 根据分镜核心冲突自动生成片名候选
+- 选出主片名、英文名和一句 logline
+- 从分镜中提炼主视觉符号，而不是把三张图简单拼贴
+- 抽象分析参考海报的设计手法，但不复制具体版式、片名、人物姿态或综合色
+- 根据电影氛围选择排版方式、字体气质和颜色系统
+- 输出带文字主题海报 prompt
+- 主海报固定 3:4 竖版比例，并给出 16:9、1:1、9:16 的扩展封面规则
 
 每张镜头都要求回答：
 
@@ -221,6 +232,10 @@
 这组三联第三张不要再做空场物件，保持人物和群体还在动作里。
 ```
 
+```text
+给这组电影分镜自动取名，再补一张带文字主题海报和完整视觉体系封面。
+```
+
 ## Output Format
 
 默认生成：
@@ -230,6 +245,7 @@ Shot 1: independent 21:9 frame
 Shot 2: independent 21:9 frame
 Shot 3: independent 21:9 frame
 Final: vertical triptych stitched from the three frames
+Optional: title candidates + theme poster + visual-system cover
 ```
 
 默认拼接规则：
@@ -238,6 +254,23 @@ Final: vertical triptych stitched from the three frames
 - 三张纵向拼接
 - 黑色间隔 8-12 px
 - 不加字幕、不加序号、不加水印、不加装饰边框
+
+若启用主题海报阶段，默认采用两段式：先生成主视觉底图，再用排版工具叠加准确片名和小字。直接让图像模型画文字时，只使用一个短片名，并预留后期校正空间。
+
+主题海报的主海报固定为 **3:4 竖版比例**。海报 prompt 必须写明 `3:4 vertical poster composition`；16:9、1:1、9:16 只作为后续视觉体系扩展封面，不替代主海报比例。
+
+海报参考图只用于抽象方法分析，例如大留白、标题压住人物、书写笔触、文字穿插景深、单色底与高饱和点睛色、胶片颗粒、旧纸感和小人对巨型环境。它不会复用参考图的具体构图、片名、IP、人物关系、物件组合或字体轮廓。
+
+海报设计会先判断电影气质，再决定视觉系统：
+
+- 亲密记忆：大留白、细衬线、褪色蓝或旧照片暖灰
+- 犯罪黑色幽默：粗窄大字、人物被标题压住、黑/脏白/血红
+- 史诗权力崩塌：巨大笔触或符号、人物缩小、黑/朱红/金
+- 东方水墨历史：宣纸留白、墨块压境、竖排或边栏小字
+- 青春旅行：轻盈手写或明亮无衬线、草绿/天蓝/日光黄
+- 科幻制度焦虑：几何无衬线、界面感网格、冷蓝/紫灰/荧光点睛
+- 体育速度：压缩粗体、文字参与运动方向、场地原色加队服高亮
+- 温暖生活：标题不压迫人物、温和字体、暖白/木色/旧胶片黄
 
 ## Prompt Structure
 
@@ -267,6 +300,9 @@ Final: vertical triptych stitched from the three frames
 - TV drama blocking
 - copying a specific director shot or existing IP
 - always ending with an abandoned object
+- turning the film poster into a simple storyboard collage
+- using generic AI-film titles instead of story-driven names
+- relying on image models for dense, accurate small text
 
 ## Repository Contents
 
